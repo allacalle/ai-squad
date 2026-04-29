@@ -1,0 +1,117 @@
+{
+  "version": "3.0",
+  "nombre": "Empresa IA Framework",
+  
+  "agentes": {
+    "frontend": {
+      "modelo": "opencode/qwen2.5-coder-32b",
+      "backup": "opencode/qwen2.5-coder-7b",
+      "skills": [
+        "react-development",
+        "css-modules",
+        "vite-build",
+        "google-fonts",
+        "vitest-testing"
+      ],
+      "archivos": [
+        "src/components/**/*",
+        "src/hooks/**/*",
+        "src/*.css",
+        "src/App.tsx"
+      ],
+      "excluye": [
+        "src/routes/**/*",
+        "src/services/**/*",
+        "src/**/*.test.ts"
+      ]
+    },
+    
+    "backend": {
+      "modelo": "opencode/qwen2.5-coder-32b",
+      "backup": "opencode/qwen2.5-coder-7b",
+      "skills": [
+        "express-framework",
+        "fastapi-framework",
+        "mongodb",
+        "auth-jwt",
+        "api-design"
+      ],
+      "archivos": [
+        "src/routes/**/*",
+        "src/services/**/*",
+        "src/api/**/*",
+        "src/logic/**/*",
+        "src/types/**/*"
+      ],
+      "excluye": [
+        "src/components/**/*",
+        "src/**/*.test.ts"
+      ]
+    },
+    
+    "qa": {
+      "modelo": "opencode/qwen3.6-plus-free",
+      "backup": "opencode/qwen2.5-coder-7b",
+      "skills": [
+        "vitest-testing",
+        "jest-testing",
+        "supertest-api",
+        "pytest-framework",
+        "quality-standards"
+      ],
+      "archivos": [
+        "src/**/*.test.ts",
+        "src/**/*.test.tsx",
+        "tests/**/*",
+        "coverage/**/*"
+      ],
+      "excluye": []
+    },
+    
+    "docs": {
+      "modelo": "opencode/qwen2.5-coder-7b",
+      "backup": "opencode/qwen2.5-coder-7b",
+      "skills": [
+        "code-standards",
+        "documentation",
+        "markdown"
+      ],
+      "archivos": [
+        "README.md",
+        "docs/**/*",
+        "src/**/*.ts",
+        "src/**/*.tsx"
+      ],
+      "excluye": []
+    },
+    
+    "skill-assigner": {
+      "modelo": "opencode/qwen3.6-plus-free",
+      "backup": "opencode/qwen2.5-coder-7b",
+      "skills": [
+        "skill-assignment",
+        "tech-research"
+      ],
+      "auto_inyectar": [
+        "auth",
+        "jwt"
+      ],
+      "auto_inyectar_skills": [
+        "auth-jwt"
+      ]
+    }
+  },
+  
+  "skill_assignment_rules": {
+    "auto_threshold": 0.9,
+    "doubt_threshold": 0.5,
+    "always_ask": true
+  },
+  
+  "idle_behavior": {
+    "frontend": ["ui-review", "css-optimization"],
+    "backend": ["refactor-proposals", "performance-review"],
+    "qa": ["code-review", "coverage-improvement"],
+    "docs": ["readme-update", "comments-improvement"]
+  }
+}
