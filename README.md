@@ -2,10 +2,10 @@
 
 > **Drop this folder into any project. Get a 17-agent AI team. Build software 3x faster.**
 > 
-> *v6.1: Spec-Driven Edition — Contracts before Code, 6-Phase Discipline*
+> *v6.1.1: Research & Discovery — Structured briefs, informed specs*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-6.1-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-6.1.1-blue.svg)](CHANGELOG.md)
 
 ---
 
@@ -67,6 +67,8 @@ That's it. The AI now has a 17-agent team.
 
 | Feature | What it does |
 |---------|-------------|
+| **Discovery Form** | Structured 6-field brief (Surface, Audience, Tone, Brand, Scale, Constraints) |
+| **Researcher Agent** | Investigates tech, competitors, users BEFORE specs are written |
 | **Spec-Driven Development** | Specifier writes contracts BEFORE code. No specs = no coding. |
 | **6-Phase Discipline** | Spec → Plan → Build → Verify → Integrate → Document. No skipping. |
 | **Zero Trust Doctrine** | QA blocks sprints if integration tests fail. CEO verifies every "Done". |
@@ -89,14 +91,13 @@ That's it. The AI now has a 17-agent team.
 ```
 1. You give an idea to the AI (CEO)
         ↓
-2. CEO interviews you (/grill-me) to understand requirements
+2. CEO fills Discovery Form (6 fields — 2 minutes)
         ↓
-3. CEO creates BACKLOG.md with clear tasks
+3. RESEARCHER investigates tech, competitors, user context
         ↓
-4. SPECIFIER writes contracts (API, Component, Data, Acceptance)
+4. SPECIFIER writes contracts (informed by research)
         ↓
-5. CEO launches 5 parallel agents:
-   • SPECIFIER → Contracts (if more needed)
+5. CEO launches 4 parallel agents:
    • DESIGNER → Creates DESIGN.md (Direction Picker + Design Systems)
    • FRONTEND → Builds UI components
    • BACKEND → Creates APIs and logic
@@ -133,14 +134,18 @@ your-project/
 │   │   ├── DONE.md                # Completed tasks
 │   │   ├── STATE.md               # Project overview
 │   │   ├── GAP_APPROVAL.md        # Missing skills
+│   │   ├── discovery/             # Discovery forms (v6.1.1+)
+│   │   ├── research/              # Research reports (v6.1.1+)
 │   │   └── specs/                 # Integration contracts (v6.1+)
 │   ├── prompts/
+│   │   ├── researcher-agent.md    # Tech & market research (v6.1.1+)
 │   │   ├── specifier-agent.md     # Contracts & specs (v6.1+)
 │   │   ├── designer-agent.md      # Uses DESIGN.md standard
 │   │   ├── frontend-agent.md      # UI components
 │   │   ├── backend-agent.md       # APIs and logic
 │   │   └── qa-agent.md            # Testing + Anti-Slop audit
-│   └── skills/                    # 19 specialized skills
+│   └── skills/                    # 20 specialized skills
+│       ├── discovery-form.md      # 6-field structured brief (v6.1.1+)
 │       ├── anti-slop-checklist.md # 5-dimension QA audit (v6.1+)
 │       ├── superpowers-discipline.md  # 6-phase enforcement (v6.1+)
 │       ├── direction-picker.md    # 5 visual directions (v6.1+)
@@ -152,6 +157,8 @@ your-project/
 │       ├── newsletter-writer.md
 │       └── [engineering skills...]
 ├── docs/
+│   ├── discovery/                 # Discovery forms (v6.1.1+)
+│   ├── research/                  # Research reports (v6.1.1+)
 │   └── specs/                     # Spec documents (v6.1+)
 ├── templates/
 │   └── DESIGN.md                  # Visual identity template
@@ -166,14 +173,15 @@ your-project/
 
 ## Agent Roles
 
-### Development Team (Parallel)
-| Agent | Specialty | Files |
-|-------|-----------|-------|
-| **SPECIFIER** | Contracts & Specs | `docs/specs/*.md` |
-| **DESIGNER** | Visual identity, UX | DESIGN.md, UX_FLOW.md |
-| **FRONTEND** | UI, Components | components/, hooks/ |
-| **BACKEND** | APIs, Logic | routes/, services/ |
-| **QA** | Testing, Quality | tests/, *.test.* |
+### Development Team (Sequential + Parallel)
+| Agent | Specialty | Files | Phase |
+|-------|-----------|-------|-------|
+| **RESEARCHER** | Tech & Market Research | `docs/research/*.md` | 0.5 (sequential) |
+| **SPECIFIER** | Contracts & Specs | `docs/specs/*.md` | 1 (sequential) |
+| **DESIGNER** | Visual identity, UX | DESIGN.md, UX_FLOW.md | 3 (parallel) |
+| **FRONTEND** | UI, Components | components/, hooks/ | 3 (parallel) |
+| **BACKEND** | APIs, Logic | routes/, services/ | 3 (parallel) |
+| **QA** | Testing, Quality | tests/, *.test.* | 3 (parallel) |
 
 ### Marketing Team (Post-Launch)
 | Agent | Mission | Tools |
@@ -214,8 +222,8 @@ AI-SQUAD stands on the shoulders of giants. These open-source creators built the
 | Setup time | < 2 minutes |
 | Throughput | ~3x faster than single AI |
 | Code conflicts | 0 (strict file separation) |
-| Agents | 18 (5 base + 4 marketing + 9 on-demand) |
-| Skills | 19 pre-built |
+| Agents | 19 (6 base + 4 marketing + 9 on-demand) |
+| Skills | 20 pre-built |
 | Design Systems | 72 (Linear, Stripe, Vercel, Apple...) |
 | Visual Directions | 5 (Editorial, Minimal, Warm, Tech, Brutalist) |
 
@@ -231,6 +239,7 @@ MIT — Use it however you want. Attribution appreciated.
 
 See [CHANGELOG.md](CHANGELOG.md) for full history.
 
+**v6.1.1** — Research & Discovery: Researcher agent, structured Discovery Form, informed specs
 **v6.1** — Spec-Driven: Specifier agent, 6-phase discipline, Anti-Slop audit, 72 design systems, Direction Picker
 **v6.0** — Zero Trust: QA blocks sprints, CEO verifies every "Done", Placebo Coding prevention
 **v5.3** — Enterprise Edition: Marketing team + DESIGN.md integration

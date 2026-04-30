@@ -1,5 +1,39 @@
 # Changelog - AI-SQUAD Framework
 
+## [6.1.1] - 30/04/2026 - Research & Discovery Edition
+
+### 🆕 Major Changes
+
+**Discovery Form (Structured Brief)**
+- Replaces free-form `/grill-me` with structured 6-field form: Surface, Audience, Tone, Brand, Scale, Constraints
+- Based on Nexu's finding that 80% of redirects happen because the brief was incomplete
+- Forms lock scope in 2 minutes vs 15-30 min of wandering conversation
+
+**Researcher Agent**
+- Investigates tech landscape, competitors, user context, and domain knowledge BEFORE specs are written
+- Produces research reports at `docs/research/[feature].md`
+- Specs are now informed by real data, not AI guesses
+- Includes competitive analysis table with pros/cons/our advantage
+
+**8-Phase Workflow (expanded)**
+- Phase 0: Discovery (6-field form)
+- Phase 0.5: Research (tech, competitors, users)
+- Phase 1: Spec (informed contracts)
+- Phase 2: Plan
+- Phase 3: Build (4 agents parallel)
+- Phase 4: Verify
+- Phase 5: Integrate
+- Phase 6: Document
+
+### 📚 Documentation Updated
+- PROMPT-INICIAL.md: Added Researcher, Discovery Form, expanded workflow
+- .empresa/prompts/researcher-agent.md: New agent prompt
+- .empresa/skills/discovery-form.md: 6-field structured brief
+- README.md: v6.1.1 with new agent, updated workflow
+- CHANGELOG.md: v6.1.1 release notes
+
+---
+
 ## [6.1] - 30/04/2026 - Spec-Driven Edition
 
 ### 🆕 Major Changes
