@@ -173,6 +173,7 @@ Tech Lead, Project Manager, DevOps, Security, AI/Data Engineer, SRE, Documentado
 - **[DESIGN.md](https://github.com/google-labs-code/design.md)** — Google Labs visual identity standard
 - **[Social Media Skills](https://github.com/charlie947/social-media-skills)** — Charlie Hills marketing system
 - **[Matt Pocock Skills](https://github.com/total-typescript)** — Engineering best practices
+- **[Agent Orchestration Kit](https://github.com/jcarlosrodicio/opencode-agent-orchestration-kit)** — jcarlosrodicio's OpenCode agent orchestration flows & Spec-Driven development
 
 ---
 
