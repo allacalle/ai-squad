@@ -170,10 +170,19 @@ Tech Lead, Project Manager, DevOps, Security, AI/Data Engineer, SRE, Documentado
 
 ## Powered By
 
-- **[DESIGN.md](https://github.com/google-labs-code/design.md)** — Google Labs visual identity standard
-- **[Social Media Skills](https://github.com/charlie947/social-media-skills)** — Charlie Hills marketing system
-- **[Matt Pocock Skills](https://github.com/total-typescript)** — Engineering best practices
-- **[Agent Orchestration Kit](https://github.com/jcarlosrodicio/opencode-agent-orchestration-kit)** — jcarlosrodicio's OpenCode agent orchestration flows & Spec-Driven development
+AI-SQUAD stands on the shoulders of giants. These open-source creators built the tools, standards, and workflows that make this framework possible:
+
+- **[DESIGN.md](https://github.com/google-labs-code/design.md)** — Google Labs visual identity standard (our Designer agent follows this spec)
+- **[Social Media Skills](https://github.com/charlie947/social-media-skills)** — Charlie Hills' marketing system (Content Strategist, Copywriter, Newsletter skills)
+- **[Matt Pocock Skills](https://github.com/total-typescript)** — Engineering best practices and TypeScript expertise
+- **[Agent Orchestration Kit](https://github.com/jcarlosrodicio/opencode-agent-orchestration-kit)** — jcarlosrodicio's OpenCode agent orchestration flows & Spec-Driven development (inspired our Zero Trust & Contract Verification)
+- **[Open Design](https://github.com/nexu-io/open-design)** — Nexu's open-source alternative to Claude Design. 72 design systems, 31 skills, sandboxed preview. Our Designer agent uses their DESIGN.md standard.
+- **[Awesome Design MD](https://github.com/VoltAgent/awesome-design-md)** — VoltAgent's collection of 72 product design systems (Linear, Stripe, Vercel, Apple, Notion...) that power visual consistency
+- **[Huashu Design](https://github.com/alchaincyf/huashu-design)** — alchaincyf's design philosophy compass: 5-step brand protocol, anti-AI-slop checklist, 5-dimensional self-critique
+- **[Guizang PPT Skill](https://github.com/op7418/guizang-ppt-skill)** — op7418's magazine-style deck generator (WebGL heroes, P0/P1/P2 checklists)
+- **[Open CodeSign](https://github.com/OpenCoworkAI/open-codesign)** — OpenCoworkAI's streaming artifact loop & sandboxed iframe preview pattern
+- **[Multica](https://github.com/multica-ai/multica)** — multica-ai's daemon-and-runtime architecture for multi-agent CLI orchestration
+- **[Superpowers](https://github.com/obra/superpowers.git)** — obra's workflow discipline plugin that enforces step-by-step agent execution
 
 ---
 
