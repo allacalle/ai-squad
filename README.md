@@ -2,10 +2,10 @@
 
 > **Drop this folder into any project. Get a 17-agent AI team. Build software 3x faster.**
 > 
-> *v6.0: Now with Zero Trust Doctrine & Nuclear QA*
+> *v6.1: Spec-Driven Edition — Contracts before Code, 6-Phase Discipline*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-6.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-6.1-blue.svg)](CHANGELOG.md)
 
 ---
 
@@ -67,14 +67,20 @@ That's it. The AI now has a 17-agent team.
 
 | Feature | What it does |
 |---------|-------------|
+| **Spec-Driven Development** | Specifier writes contracts BEFORE code. No specs = no coding. |
+| **6-Phase Discipline** | Spec → Plan → Build → Verify → Integrate → Document. No skipping. |
 | **Zero Trust Doctrine** | QA blocks sprints if integration tests fail. CEO verifies every "Done". |
-| **Parallel Agents** | 4 agents coding simultaneously (Designer, Frontend, Backend, QA) |
+| **Anti-Slop 5-Dimension Audit** | QA scores Philosophy, Architecture, Detail, Function, UX. |
+| **Parallel Agents** | 5 agents coding simultaneously (Specifier, Designer, Frontend, Backend, QA) |
+| **72 Design Systems** | Pre-built tokens: Linear, Stripe, Vercel, Apple, Notion... |
+| **Direction Picker** | 5 curated visual styles with deterministic palettes + fonts |
+| **Slash Commands** | `/spec`, `/sprint-start`, `/build`, `/review`, `/integrate`, `/done` |
+| **Placebo Coding Detection** | QA greps for actual usage — empty structures get blocked |
 | **DESIGN.md** | Google Labs standard for visual identity with WCAG validation |
 | **Marketing Team** | Content strategy, posts, newsletters, analytics — post-launch |
 | **Zero Conflicts** | Each agent has assigned files. They never touch each other's code. |
-| **Evaluator-Optimizer** | QA + Tech Lead review before closing any sprint |
 | **HITL Stop-Points** | 6 mandatory checkpoints where AI asks you before proceeding |
-| **17 Roles** | From coding to marketing, all pre-configured |
+| **17+ Roles** | From coding to marketing, all pre-configured |
 
 ---
 
@@ -87,17 +93,22 @@ That's it. The AI now has a 17-agent team.
         ↓
 3. CEO creates BACKLOG.md with clear tasks
         ↓
-4. CEO launches 4 parallel agents:
-   • DESIGNER → Creates DESIGN.md (validated tokens)
+4. SPECIFIER writes contracts (API, Component, Data, Acceptance)
+        ↓
+5. CEO launches 5 parallel agents:
+   • SPECIFIER → Contracts (if more needed)
+   • DESIGNER → Creates DESIGN.md (Direction Picker + Design Systems)
    • FRONTEND → Builds UI components
    • BACKEND → Creates APIs and logic
    • QA → Writes tests
         ↓
-5. Evaluator-Optimizer reviews quality
+6. QA runs Anti-Slop 5-Dimension Audit
         ↓
-6. CEO presents results to you (Stop-Point)
+7. CEO verifies integration (npm test, npm run build, manual)
         ↓
-7. Software done → Marketing team activates
+8. CEO presents results to you (Stop-Point)
+        ↓
+9. Software done → Marketing team activates
    • Content Strategist → 32+ content ideas
    • Copywriter → Posts, hooks, threads
    • Newsletter Writer → Email campaigns
@@ -111,7 +122,8 @@ That's it. The AI now has a 17-agent team.
 your-project/
 ├── .empresa/
 │   ├── config/
-│   │   └── opencode.json          # 17 roles + MCPs configuration
+│   │   ├── opencode.json          # 17 roles + MCPs configuration
+│   │   └── design-systems.md      # 72 pre-built design systems
 │   ├── content/
 │   │   ├── about-brand.md         # Brand identity (marketing)
 │   │   └── brand-voice.md         # Voice profile (marketing)
@@ -120,13 +132,18 @@ your-project/
 │   │   ├── ACTIVE.md              # Who's doing what
 │   │   ├── DONE.md                # Completed tasks
 │   │   ├── STATE.md               # Project overview
-│   │   └── GAP_APPROVAL.md        # Missing skills
+│   │   ├── GAP_APPROVAL.md        # Missing skills
+│   │   └── specs/                 # Integration contracts (v6.1+)
 │   ├── prompts/
+│   │   ├── specifier-agent.md     # Contracts & specs (v6.1+)
 │   │   ├── designer-agent.md      # Uses DESIGN.md standard
 │   │   ├── frontend-agent.md      # UI components
 │   │   ├── backend-agent.md       # APIs and logic
-│   │   └── qa-agent.md            # Testing
-│   └── skills/                    # 14 specialized skills
+│   │   └── qa-agent.md            # Testing + Anti-Slop audit
+│   └── skills/                    # 19 specialized skills
+│       ├── anti-slop-checklist.md # 5-dimension QA audit (v6.1+)
+│       ├── superpowers-discipline.md  # 6-phase enforcement (v6.1+)
+│       ├── direction-picker.md    # 5 visual directions (v6.1+)
 │       ├── brand-voice-builder.md
 │       ├── content-matrix.md
 │       ├── post-writer.md
@@ -134,6 +151,8 @@ your-project/
 │       ├── thread-writer.md
 │       ├── newsletter-writer.md
 │       └── [engineering skills...]
+├── docs/
+│   └── specs/                     # Spec documents (v6.1+)
 ├── templates/
 │   └── DESIGN.md                  # Visual identity template
 ├── DESIGN.md                      # Your project's design system
@@ -150,6 +169,7 @@ your-project/
 ### Development Team (Parallel)
 | Agent | Specialty | Files |
 |-------|-----------|-------|
+| **SPECIFIER** | Contracts & Specs | `docs/specs/*.md` |
 | **DESIGNER** | Visual identity, UX | DESIGN.md, UX_FLOW.md |
 | **FRONTEND** | UI, Components | components/, hooks/ |
 | **BACKEND** | APIs, Logic | routes/, services/ |
@@ -190,12 +210,14 @@ AI-SQUAD stands on the shoulders of giants. These open-source creators built the
 
 | Metric | Value |
 |--------|-------|
-| Size | ~164 KB (pure text) |
+| Size | ~200 KB (pure text) |
 | Setup time | < 2 minutes |
 | Throughput | ~3x faster than single AI |
 | Code conflicts | 0 (strict file separation) |
-| Agents | 17 (4 base + 4 marketing + 9 on-demand) |
-| Skills | 14 pre-built |
+| Agents | 18 (5 base + 4 marketing + 9 on-demand) |
+| Skills | 19 pre-built |
+| Design Systems | 72 (Linear, Stripe, Vercel, Apple...) |
+| Visual Directions | 5 (Editorial, Minimal, Warm, Tech, Brutalist) |
 
 ---
 
@@ -209,6 +231,8 @@ MIT — Use it however you want. Attribution appreciated.
 
 See [CHANGELOG.md](CHANGELOG.md) for full history.
 
+**v6.1** — Spec-Driven: Specifier agent, 6-phase discipline, Anti-Slop audit, 72 design systems, Direction Picker
+**v6.0** — Zero Trust: QA blocks sprints, CEO verifies every "Done", Placebo Coding prevention
 **v5.3** — Enterprise Edition: Marketing team + DESIGN.md integration
 **v5.2** — Marketing team added
 **v5.1** — Self-Improving: Evaluator-Optimizer, Stop-Points, 13 roles

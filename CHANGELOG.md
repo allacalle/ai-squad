@@ -1,5 +1,45 @@
 # Changelog - AI-SQUAD Framework
 
+## [6.1] - 30/04/2026 - Spec-Driven Edition
+
+### 🆕 Major Changes
+
+**Spec-Driven Development**
+- New SPECIFIER-AGENT: Writes integration contracts BEFORE any code is written.
+- Contracts include: API endpoints, Component props/events, Data types, Acceptance criteria.
+- Agents code TO THE CONTRACT — deviations are rejected by QA.
+
+**6-Phase Discipline (Superpowers-inspired)**
+- Strict phase order: Spec → Plan → Build → Verify → Integrate → Document
+- No skipping phases. CEO announces current phase at session start.
+- Slash commands enforce transitions: `/spec`, `/sprint-start`, `/build`, `/review`, `/integrate`, `/done`
+
+**Anti-Slop 5-Dimension Audit**
+- QA scores every feature: Philosophy, Architecture, Detail, Function, UX (1-5 each)
+- Placebo Coding detection: QA greps for actual usage of new files
+- Contract verification: QA checks if implementation matches spec exactly
+
+**Design Systems Library**
+- 72 pre-built design systems: Linear, Stripe, Vercel, Apple, Notion, Anthropic...
+- Each system ships exact color tokens, fonts, spacing, radius values
+- Designer applies system tokens directly in DESIGN.md
+
+**Direction Picker**
+- 5 curated visual directions with deterministic palettes + fonts:
+  - Editorial Monocle, Modern Minimal, Warm Soft, Tech Utility, Brutalist Experimental
+- Designer selects ONE direction before creating DESIGN.md — no freestyle
+
+### 📚 Documentation Updated
+- PROMPT-INICIAL.md: Added Specifier agent, 6-phase workflow, slash commands, Anti-Slop tools
+- .empresa/prompts/specifier-agent.md: New agent prompt
+- .empresa/skills/anti-slop-checklist.md: 5-dimension audit + Placebo Coding detection
+- .empresa/skills/superpowers-discipline.md: Phase enforcement + slash commands
+- .empresa/skills/direction-picker.md: 5 visual directions with tokens
+- .empresa/config/design-systems.md: 72 design systems library
+- README.md: v6.1 with new agents, workflow, and tools
+
+---
+
 ## [6.0] - 30/04/2026 - Zero Trust Edition
 
 ### 🆕 Major Changes
