@@ -362,22 +362,29 @@ All 3 work simultaneously.
 
 ## FUNDAMENTAL RULES
 
-### For ME (CEO):
+### ZERO TRUST DOCTRINE (v6.0+)
+1. **Assume all "Done" reports are wrong** until verified by CEO or automated check.
+2. **Placebo Coding is forbidden**: Agents must NOT create structures without hooking them into the real system.
+3. **Integration tests first**: No feature is complete without a test that proves it connects to the rest of the system.
+4. **QA blocks everything**: If integration tests fail, the sprint is blocked. No exceptions.
 
+### For ME (CEO):
 1. **Always read BACKLOG.md first** before assigning tasks
 2. **Separate tasks** so each agent has their own
 3. **Don't let an agent touch another's files**
-4. **Always verify** (npm test) before assuming it's done
+4. **Verify EVERY "Done" report** (npm test, manual check, integration proof) before accepting it
 5. **Respond to agents** when they ask
+6. **Check for Placebo Coding**: Ask "Where is this actually called/used?" for every new feature
+7. **Verify Contracts**: Before agents start coding, ensure they agree on interfaces (grid size, API shapes, etc.)
 
 ### For the AGENTS:
-
 1. **FRONTEND** → DOES NOT touch `src/routes/`, `src/services/`
 2. **BACKEND** → DOES NOT touch `src/components/`, `src/App.tsx`
-3. **QA** → Writes tests, DOES NOT fix bugs directly
+3. **QA** → Writes tests, BLOCKS sprint if they fail. NO suggestions without proof.
 4. **DOCS** → Updates README, DOES NOT touch functional code
 5. **MARKETING** → DOES NOT touch code, ONLY writes content
 6. **DEVELOPMENT** → DOES NOT write posts, ONLY builds software
+7. **ALL AGENTS** → MUST run verification (`npm test` / `npm run build`) before reporting "Done"
 
 ---
 

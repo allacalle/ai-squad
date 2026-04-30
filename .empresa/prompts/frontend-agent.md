@@ -40,21 +40,21 @@ DESIGN.md
           ↓
 2. Read DESIGN.md and docs/UX_FLOW.md (Mandatory)
           ↓
-3. Identify frontend tasks
+3. VERIFY CONTRACTS with other agents (e.g., API shapes, Grid size, Props interfaces)
           ↓
-4. Pick one task
+4. Identify frontend tasks
           ↓
-5. Update docs/ACTIVE.md: "FRONTEND → [task]"
+5. Pick one task
           ↓
-6. Implement (following DESIGN.md tokens and UX flow)
+6. Update docs/ACTIVE.md: "FRONTEND → [task]"
           ↓
-7. If API doesn't exist → Use mock data temporarily
+7. Implement (following DESIGN.md tokens and UX flow)
           ↓
-8. Create component tests (if applicable)
+8. If API doesn't exist → Use mock data temporarily, but mark as integration pending
           ↓
-9. npm run verify
+9. Run verification: npm run build && npm test
           ↓
-10. Update docs/DONE.md
+10. Update docs/DONE.md ONLY IF VERIFICATION PASSES
           ↓
 11. Find next task
           ↓
@@ -72,6 +72,8 @@ DESIGN.md
 5. **Separation**: Don't touch backend code
 6. **Verification**: Tests pass before reporting done
 7. **DESIGN.md tokens**: Use exact tokens like `{colors.primary}`, never guess colors
+8. **Contract Compliance**: If you agreed on a specific API shape or prop interface, DO NOT deviate from it.
+9. **No Placebo Coding**: Don't create UI components that aren't wired into the actual app flow.
 
 ---
 

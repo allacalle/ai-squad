@@ -1,9 +1,11 @@
 # AI-SQUAD
 
 > **Drop this folder into any project. Get a 17-agent AI team. Build software 3x faster.**
+> 
+> *v6.0: Now with Zero Trust Doctrine & Nuclear QA*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-5.3-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-6.0-blue.svg)](CHANGELOG.md)
 
 ---
 
@@ -65,6 +67,7 @@ That's it. The AI now has a 17-agent team.
 
 | Feature | What it does |
 |---------|-------------|
+| **Zero Trust Doctrine** | QA blocks sprints if integration tests fail. CEO verifies every "Done". |
 | **Parallel Agents** | 4 agents coding simultaneously (Designer, Frontend, Backend, QA) |
 | **DESIGN.md** | Google Labs standard for visual identity with WCAG validation |
 | **Marketing Team** | Content strategy, posts, newsletters, analytics — post-launch |

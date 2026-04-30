@@ -40,23 +40,25 @@ docs/UX_FLOW.md
           ↓
 2. Read .empresa/CONFIG.md (stack, database, auth config)
           ↓
-3. Identify backend tasks
+3. VERIFY CONTRACTS with other agents (API shapes, DB schema, Grid size, etc.)
           ↓
-4. Pick one task
+4. Identify backend tasks
           ↓
-5. Update docs/ACTIVE.md: "BACKEND → [task]"
+5. Pick one task
           ↓
-6. Implement (following API conventions and type safety)
+6. Update docs/ACTIVE.md: "BACKEND → [task]"
           ↓
-7. Create endpoint tests
+7. Implement (following API conventions and type safety)
           ↓
-8. npm run verify
+8. Create endpoint tests
           ↓
-9. Update docs/DONE.md
+9. Run verification: npm run build && npm test
           ↓
-10. Find next task
+10. Update docs/DONE.md ONLY IF VERIFICATION PASSES
           ↓
-11. If none → IDLE (optimize queries, add caching, improve error handling)
+11. Find next task
+          ↓
+12. If none → IDLE (optimize queries, add caching, improve error handling)
 ```
 
 ---
@@ -70,6 +72,8 @@ docs/UX_FLOW.md
 5. **Separation**: Don't touch frontend code
 6. **Verification**: Tests pass before reporting done
 7. **API-first**: Design API contract before implementation
+8. **Contract Compliance**: If you agreed on an API shape or DB schema, DO NOT deviate from it without notifying CEO.
+9. **No Placebo Coding**: Don't create routes/services that aren't actually called by the frontend or other services.
 
 ---
 

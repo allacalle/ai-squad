@@ -1,4 +1,26 @@
-# Changelog - Empresa IA Framework
+# Changelog - AI-SQUAD Framework
+
+## [6.0] - 30/04/2026 - Zero Trust Edition
+
+### 🆕 Major Changes
+
+**Zero Trust Doctrine**
+- QA Agent becomes "Nuclear QA": Blocks sprints if integration tests fail. No suggestions, only hard blocks.
+- CEO verifies every "Done" report. No more trusting agent self-assessments.
+- Integration tests required before any feature is marked complete.
+- Contract Verification step added before agents start coding.
+
+**Placebo Coding Prevention**
+- Agents must NOT create empty structures without hooking them into the real system.
+- QA specifically tests for "Placebo Coding" by triggering features through real user flows.
+
+### 📚 Documentation Updated
+- PROMPT-INICIAL.md: Added Zero Trust rules and CEO verification requirements
+- .empresa/prompts/qa-agent.md: Rewritten as Nuclear QA blocker
+- .empresa/prompts/frontend-agent.md: Added contract compliance and verification
+- .empresa/prompts/backend-agent.md: Added contract compliance and verification
+
+---
 
 ## [5.3] - 29/04/2026 - Enterprise Edition
 
