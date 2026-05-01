@@ -1,5 +1,53 @@
 # Changelog - AI-SQUAD Framework
 
+## [6.2] - 30/04/2026 - Personality & Evidence Edition
+
+### 🆕 Major Changes
+
+**Functional Agent Personalities**
+- Every agent now has a functional personality that drives behavior (inspired by agency-agents)
+- **QA**: Evidence-only, zero-fluff. "🚨 BLOCKED: test output at line 42"
+- **Backend**: Security-paranoid, contract-first. "zod validation, rate-limited 5/min"
+- **Frontend**: Evidence-driven, bundle-aware. "+3.2KB gzip, a11y labels added"
+- **Specifier**: Legal precision. Uses MUST/MUST NOT/SHALL. No ambiguity.
+- **Researcher**: Source-cited, comparative. Every recommendation has a "because [source]"
+- **Designer**: Token-obsessed, accessibility-first. Speaks in hex codes, not adjectives.
+
+**Reality Checker Agent**
+- Visual evidence specialist — defaults to "NEEDS WORK" unless overwhelming proof
+- Requires screenshots/visual proof for every claim
+- Cross-device verification (desktop/tablet/mobile)
+- Specification vs reality comparison with gap analysis
+- Blocks "fantasy approvals" — no more "A+ ratings" for basic implementations
+
+**Accessibility Auditor Agent**
+- WCAG 2.2 AA specialist — separated from general QA for deep expertise
+- Screen reader testing protocol (VoiceOver, NVDA)
+- Keyboard-only navigation audit
+- Color contrast, zoom, reduced motion testing
+- Audit report with severity levels (Critical/Serious/Moderate/Minor)
+
+**Whimsy Injector Skill**
+- 4 levels of strategic delight: Subtle → Interactive → Discovery → Contextual
+- Micro-interaction specs with accessibility fallbacks
+- Microcopy library (loading, error, success, empty states)
+- Easter egg planning (Konami code, hidden features)
+- All whimsy respects `prefers-reduced-motion` and screen readers
+
+### 📚 Documentation Updated
+- PROMPT-INICIAL.md: 8 agents total, new Phase 4 (QA + Reality + A11y), new slash commands
+- .empresa/prompts/designer-agent.md: Added functional personality + Whimsy phase
+- .empresa/prompts/frontend-agent.md: Added functional personality + bundle awareness
+- .empresa/prompts/backend-agent.md: Added functional personality + security-first approach
+- .empresa/prompts/qa-agent.md: Added functional personality + contract verification
+- .empresa/prompts/reality-checker.md: New visual evidence agent
+- .empresa/prompts/accessibility-auditor.md: New WCAG specialist
+- .empresa/skills/whimsy-injector.md: New delight design skill
+- README.md: v6.2 with new agents, personalities, features
+- CHANGELOG.md: v6.2 release notes
+
+---
+
 ## [6.1.1] - 30/04/2026 - Research & Discovery Edition
 
 ### 🆕 Major Changes

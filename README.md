@@ -2,10 +2,10 @@
 
 > **Drop this folder into any project. Get a 17-agent AI team. Build software 3x faster.**
 > 
-> *v6.1.1: Research & Discovery — Structured briefs, informed specs*
+> *v6.2: Personality & Evidence — Functional agent personalities, Reality Checker, Accessibility Auditor*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-6.1.1-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-6.2-blue.svg)](CHANGELOG.md)
 
 ---
 
@@ -67,6 +67,10 @@ That's it. The AI now has a 17-agent team.
 
 | Feature | What it does |
 |---------|-------------|
+| **Functional Agent Personalities** | Each agent has a voice that drives behavior (e.g., QA is evidence-only, Backend is security-paranoid) |
+| **Reality Checker** | Visual evidence specialist — defaults to "NEEDS WORK", requires screenshots for approval |
+| **Accessibility Auditor** | WCAG 2.2 AA specialist — screen reader testing, keyboard navigation, contrast validation |
+| **Whimsy Injector** | Strategic delight design — micro-interactions, Easter eggs, personality without breaking functionality |
 | **Discovery Form** | Structured 6-field brief (Surface, Audience, Tone, Brand, Scale, Constraints) |
 | **Researcher Agent** | Investigates tech, competitors, users BEFORE specs are written |
 | **Spec-Driven Development** | Specifier writes contracts BEFORE code. No specs = no coding. |
@@ -136,15 +140,24 @@ your-project/
 │   │   ├── GAP_APPROVAL.md        # Missing skills
 │   │   ├── discovery/             # Discovery forms (v6.1.1+)
 │   │   ├── research/              # Research reports (v6.1.1+)
-│   │   └── specs/                 # Integration contracts (v6.1+)
+│   │   ├── specs/                 # Integration contracts (v6.1+)
+│   │   ├── reality-checks/        # Visual evidence reports (v6.2+)
+│   │   └── a11y-audits/           # Accessibility audits (v6.2+)
 │   ├── prompts/
 │   │   ├── researcher-agent.md    # Tech & market research (v6.1.1+)
 │   │   ├── specifier-agent.md     # Contracts & specs (v6.1+)
+│   │   ├── designer-agent.md      # Uses DESIGN.md standard + Direction Picker
+│   │   ├── frontend-agent.md      # UI components (evidence-driven)
+│   │   ├── backend-agent.md       # APIs and logic (security-first)
+│   │   ├── qa-agent.md            # Testing + Anti-Slop audit (gatekeeper)
+│   │   ├── reality-checker.md     # Visual evidence specialist (v6.2+)
+│   │   └── accessibility-auditor.md # WCAG specialist (v6.2+)
 │   │   ├── designer-agent.md      # Uses DESIGN.md standard
 │   │   ├── frontend-agent.md      # UI components
 │   │   ├── backend-agent.md       # APIs and logic
 │   │   └── qa-agent.md            # Testing + Anti-Slop audit
-│   └── skills/                    # 20 specialized skills
+│   └── skills/                    # 21 specialized skills
+│       ├── whimsy-injector.md     # Strategic delight design (v6.2+)
 │       ├── discovery-form.md      # 6-field structured brief (v6.1.1+)
 │       ├── anti-slop-checklist.md # 5-dimension QA audit (v6.1+)
 │       ├── superpowers-discipline.md  # 6-phase enforcement (v6.1+)
@@ -159,7 +172,9 @@ your-project/
 ├── docs/
 │   ├── discovery/                 # Discovery forms (v6.1.1+)
 │   ├── research/                  # Research reports (v6.1.1+)
-│   └── specs/                     # Spec documents (v6.1+)
+│   ├── specs/                     # Spec documents (v6.1+)
+│   ├── reality-checks/            # Visual evidence (v6.2+)
+│   └── a11y-audits/               # Accessibility audits (v6.2+)
 ├── templates/
 │   └── DESIGN.md                  # Visual identity template
 ├── DESIGN.md                      # Your project's design system
@@ -182,6 +197,8 @@ your-project/
 | **FRONTEND** | UI, Components | components/, hooks/ | 3 (parallel) |
 | **BACKEND** | APIs, Logic | routes/, services/ | 3 (parallel) |
 | **QA** | Testing, Quality | tests/, *.test.* | 3 (parallel) |
+| **REALITY-CHECKER** | Visual evidence, production readiness | `docs/reality-checks/*.md` | 4 (sequential) |
+| **ACCESSIBILITY-AUDITOR** | WCAG 2.2 AA compliance | `docs/a11y-audits/*.md` | 4 (parallel with Reality) |
 
 ### Marketing Team (Post-Launch)
 | Agent | Mission | Tools |
@@ -211,6 +228,7 @@ AI-SQUAD stands on the shoulders of giants. These open-source creators built the
 - **[Open CodeSign](https://github.com/OpenCoworkAI/open-codesign)** — OpenCoworkAI's streaming artifact loop & sandboxed iframe preview pattern
 - **[Multica](https://github.com/multica-ai/multica)** — multica-ai's daemon-and-runtime architecture for multi-agent CLI orchestration
 - **[Superpowers](https://github.com/obra/superpowers.git)** — obra's workflow discipline plugin that enforces step-by-step agent execution
+- **[Agency Agents](https://github.com/msitarzewski/agency-agents)** — msitarzewski's 89.8k⭐ collection of 150+ specialized AI agents with personality-driven behavior, Reality Checker, Accessibility Auditor, Whimsy Injector, and multi-tool integration scripts
 
 ---
 
@@ -222,8 +240,8 @@ AI-SQUAD stands on the shoulders of giants. These open-source creators built the
 | Setup time | < 2 minutes |
 | Throughput | ~3x faster than single AI |
 | Code conflicts | 0 (strict file separation) |
-| Agents | 19 (6 base + 4 marketing + 9 on-demand) |
-| Skills | 20 pre-built |
+| Agents | 21 (8 base + 4 marketing + 9 on-demand) |
+| Skills | 21 pre-built |
 | Design Systems | 72 (Linear, Stripe, Vercel, Apple...) |
 | Visual Directions | 5 (Editorial, Minimal, Warm, Tech, Brutalist) |
 
@@ -239,6 +257,7 @@ MIT — Use it however you want. Attribution appreciated.
 
 See [CHANGELOG.md](CHANGELOG.md) for full history.
 
+**v6.2** — Personality & Evidence: Functional agent personalities, Reality Checker, Accessibility Auditor, Whimsy Injector
 **v6.1.1** — Research & Discovery: Researcher agent, structured Discovery Form, informed specs
 **v6.1** — Spec-Driven: Specifier agent, 6-phase discipline, Anti-Slop audit, 72 design systems, Direction Picker
 **v6.0** — Zero Trust: QA blocks sprints, CEO verifies every "Done", Placebo Coding prevention
