@@ -4,6 +4,18 @@
 
 ### 🆕 Major Changes
 
+**Model Assignment Protocol**
+- Complete model mapping for all 9 agents in `agents.json`
+- **Kimi K2.6** → Specifier (único agente que justifica su coste)
+- **MiniMax M2.7** → Frontend + Backend (calidad de código a coste óptimo)
+- **DeepSeek V4 Flash** → QA (el más rápido y barato para tests masivos)
+- **GLM-5.1** → Designer (tokens visuales)
+- **Qwen3.5 Plus** → Researcher, A11y, Integrator, Reality Checker (sin código productivo)
+- Every agent has backup model assigned
+- Model switching protocol documented in PROMPT-INICIAL.md
+- CEO checklist: verify model BEFORE launching each agent
+- Cost optimization: $/token distribution documented per agent
+
 **Integrator Agent — The Missing Piece**
 - New INTEGRATOR-AGENT: Verifies cross-agent contracts before any feature is "Done"
 - 5-dimension cross-agent contract audit: API shapes, Data shapes, Router wiring, Import chains, E2E flow

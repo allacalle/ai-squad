@@ -407,11 +407,60 @@ Each task must have:
 
 ---
 
+## MODEL SWITCHING PROTOCOL (v6.3+ — CRÍTICO)
+
+**OpenCode usa UN solo modelo por sesión. Cada agente necesita su modelo asignado. El CEO DEBE cambiar de modelo ANTES de lanzar cada agente. Si un agente corre con el modelo equivocado, su output NO es válido.**
+
+### Cómo cambiar de modelo en OpenCode
+- **Atajo**: `Ctrl+Shift+M` (o command palette → "Change Model")
+- **O manualmente**: En la UI de OpenCode, selector de modelo arriba
+
+### Tabla de cambio de modelo por fase
+
+| Fase | Agente | Modelo requerido | Cambiar desde |
+|------|--------|-----------------|---------------|
+| **0.5** | Researcher | **Qwen3.5 Plus** | CEO default |
+| **1** | Specifier | **Kimi K2.6** ⚠️ | Qwen3.5 Plus → Kimi K2.6 |
+| **3** | Designer | **GLM-5.1** | Kimi K2.6 → GLM-5.1 |
+| **3.5** | A11y Auditor | **Qwen3.5 Plus** | GLM-5.1 → Qwen3.5 Plus |
+| **4** | Frontend | **MiniMax M2.7** | Qwen3.5 Plus → MiniMax M2.7 |
+| **4** | Backend | **MiniMax M2.7** | (mismo modelo, lanzar en paralelo) |
+| **4** | QA | **DeepSeek V4 Flash** | MiniMax M2.7 → DeepSeek V4 Flash |
+| **5** | Integrator | **Qwen3.5 Plus** | DeepSeek V4 Flash → Qwen3.5 Plus |
+| **6** | Reality Checker | **Qwen3.5 Plus** | (mismo modelo) |
+
+### Reglas de oro del cambio de modelo
+
+1. **ANTES de lanzar un agente**: verificar que el modelo activo coincide con `agents.json → [agente].modelo`
+2. **Si el modelo activo NO coincide**: cambiar modelo → verificar cambio → lanzar agente
+3. **Si dudas del modelo activo**: preguntar "¿qué modelo estoy usando ahora?"
+4. **Kimi K2.6 es tu modelo más caro**: solo para Specifier (Fase 1). Después de Spec, vuelve a un modelo más barato.
+5. **MiniMax M2.7 es tu caballo de batalla**: Frontend + Backend en paralelo.
+6. **DeepSeek V4 Flash es el más barato**: QA genera cientos de tests, optimiza coste.
+7. **Qwen3.5 Plus es tu comodín barato**: Researcher, A11y, Integrator, Reality Checker.
+
+### Verificación rápida antes de lanzar
+
+```
+📋 CEO CHECKLIST antes de lanzar [AGENTE]:
+├─ Modelo activo: [VERIFICAR]
+├─ Modelo requerido: [agents.json → agente.modelo]
+├─ ¿Coinciden? [SÍ → lanzar] [NO → cambiar modelo primero]
+└─ Backup disponible: [agents.json → agente.backup]
+```
+
+**Resumen del archivo agents.json**: `cat .empresa/config/agents.json` para ver modelos asignados.
+
+---
+
 ## HOW I LAUNCH TASK AGENTS (PARALLEL)
 
 ### In OpenCode/Claude Code:
 
+**⚠️ IMPORTANTE: Cambia el modelo ANTES de cada bloque. OpenCode no permite especificar modelo por task_agent — el subagente usa el modelo activo del CEO.**
+
 ```javascript
+// ─── CAMBIA MODELO A: Qwen3.5 Plus ───
 // Phase 0.5: Research
 const researchResult = await task_agent({
   role: "researcher",
@@ -420,6 +469,7 @@ const researchResult = await task_agent({
   task: "Research [feature] — tech, competitors, user context"
 });
 
+// ─── CAMBIA MODELO A: Kimi K2.6 ⚠️ ───
 // Phase 1: Spec (uses research)
 const specResult = await task_agent({
   role: "specifier",
@@ -428,6 +478,7 @@ const specResult = await task_agent({
   task: "Write contracts using docs/research/[feature].md"
 });
 
+// ─── CAMBIA MODELO A: GLM-5.1 ───
 // Phase 3: Design (sequential, FIRST)
 const designerResult = await task_agent({
   role: "designer",
@@ -436,6 +487,7 @@ const designerResult = await task_agent({
   task: "Create DESIGN.md with Direction Picker + Design Systems"
 });
 
+// ─── CAMBIA MODELO A: Qwen3.5 Plus ───
 // Phase 3.5: Accessibility (sequential, SECOND)
 const a11yResult = await task_agent({
   role: "accessibility-auditor",
@@ -444,8 +496,9 @@ const a11yResult = await task_agent({
   task: "Audit DESIGN.md for WCAG 2.2 AA compliance"
 });
 
-// Phase 4: Build (all parallel — after A11y approves)
-const [frontendResult, backendResult, qaResult] = await Promise.all([
+// ─── CAMBIA MODELO A: MiniMax M2.7 ───
+// Phase 4: Build (Frontend + Backend — mismo modelo, paralelo)
+const [frontendResult, backendResult] = await Promise.all([
   task_agent({
     role: "frontend",
     project: "my-project",
@@ -457,15 +510,19 @@ const [frontendResult, backendResult, qaResult] = await Promise.all([
     project: "my-project",
     prompt_file: ".empresa/prompts/backend-agent.md",
     task: "Work on BACKEND tasks from docs/BACKLOG.md"
-  }),
-  task_agent({
-    role: "qa",
-    project: "my-project",
-    prompt_file: ".empresa/prompts/qa-agent.md",
-    task: "Work on QA tasks from docs/BACKLOG.md"
   })
 ]);
 
+// ─── CAMBIA MODELO A: DeepSeek V4 Flash ───
+// Phase 4: QA (misma fase, diferente modelo — secuencial tras Frontend/Backend)
+const qaResult = await task_agent({
+  role: "qa",
+  project: "my-project",
+  prompt_file: ".empresa/prompts/qa-agent.md",
+  task: "Work on QA tasks from docs/BACKLOG.md"
+});
+
+// ─── CAMBIA MODELO A: Qwen3.5 Plus ───
 // Phase 5: Integrate (sequential — AFTER build)
 const integratorResult = await task_agent({
   role: "integrator",
@@ -474,7 +531,7 @@ const integratorResult = await task_agent({
   task: "Verify cross-agent contracts. Run integration tests. Close GAP loops."
 });
 
-// Phase 6: Reality Check
+// Phase 6: Reality Check (mismo modelo Qwen3.5 Plus)
 const realityResult = await task_agent({
   role: "reality-checker",
   project: "my-project",
@@ -485,16 +542,19 @@ const realityResult = await task_agent({
 
 ### In another AI that supports task agents:
 
-1. Read `.empresa/prompts/researcher-agent.md` → Launch as RESEARCHER-AGENT
-2. Read `.empresa/prompts/specifier-agent.md` → Launch as SPECIFIER-AGENT
-3. Read `.empresa/prompts/designer-agent.md` → Launch as DESIGNER-AGENT (FIRST)
-4. Read `.empresa/prompts/accessibility-auditor.md` → Launch as ACCESSIBILITY-AUDITOR (SECOND)
-5. Read `.empresa/prompts/frontend-agent.md` → Launch as FRONTEND-AGENT (parallel)
-6. Read `.empresa/prompts/backend-agent.md` → Launch as BACKEND-AGENT (parallel)
-7. Read `.empresa/prompts/qa-agent.md` → Launch as QA-AGENT (parallel)
-8. Read `.empresa/prompts/integrator-agent.md` → Launch as INTEGRATOR-AGENT (after build)
+**⚠️ CAMBIA EL MODELO ANTES DE CADA AGENTE. El modelo activo es el que usará el subagente.**
 
-Researcher → Specifier → Designer → A11y Auditor work sequentially. Then Frontend + Backend + QA work in parallel. Then Integrator verifies everything connects.
+1. **Cambia a Qwen3.5 Plus** → Lee `.empresa/prompts/researcher-agent.md` → Launch as RESEARCHER
+2. **Cambia a Kimi K2.6** → Lee `.empresa/prompts/specifier-agent.md` → Launch as SPECIFIER
+3. **Cambia a GLM-5.1** → Lee `.empresa/prompts/designer-agent.md` → Launch as DESIGNER (FIRST)
+4. **Cambia a Qwen3.5 Plus** → Lee `.empresa/prompts/accessibility-auditor.md` → Launch as A11Y AUDITOR (SECOND)
+5. **Cambia a MiniMax M2.7** → Lee `.empresa/prompts/frontend-agent.md` → Launch as FRONTEND (parallel)
+6. **Cambia a MiniMax M2.7** → Lee `.empresa/prompts/backend-agent.md` → Launch as BACKEND (parallel)
+7. **Cambia a DeepSeek V4 Flash** → Lee `.empresa/prompts/qa-agent.md` → Launch as QA (after step 5-6)
+8. **Cambia a Qwen3.5 Plus** → Lee `.empresa/prompts/integrator-agent.md` → Launch as INTEGRATOR (after build)
+9. **Cambia a Qwen3.5 Plus** → Lee `.empresa/prompts/reality-checker.md` → Launch as REALITY CHECKER (last)
+
+Secuencia: Researcher → Specifier → Designer → A11y → Frontend+Backend → QA → Integrator → Reality Checker.
 
 ---
 
@@ -575,6 +635,7 @@ These rules come from 5 real multi-agent experiments. They prevent the failures 
 13. **Verify Contracts**: Before agents start coding, ensure specs exist and agents agree
 14. **Never skip Designer + Auditor**: This was the winning formula (Exp5: 137/137 tests, WCAG AA)
 15. **Less docs, more validation**: One integration test > 10 pages of markdown
+16. **🔴 CAMBIA DE MODELO antes de cada agente**: Verifica en `agents.json` qué modelo toca. Kimi K2.6 solo para Specifier. MiniMax M2.7 para Frontend/Backend. DeepSeek V4 Flash para QA. Qwen3.5 Plus para el resto.
 
 ### For the AGENTS:
 1. **RESEARCHER** → Investigates tech, competitors, users. Cites sources. DOES NOT write specs or code.
@@ -771,11 +832,13 @@ When you open me in a project with the framework:
 - [ ] Read `.empresa/CONFIG.md` (stack, config)
 - [ ] Read `docs/STATE.md` (current state)
 - [ ] Read `docs/BACKLOG.md` (pending tasks)
-- [ ] Announce current phase: "📋 Current Phase: [X/6]"
+- [ ] Announce current phase: "📋 Current Phase: [X/8]"
+- [ ] 🔴 **VERIFY ACTIVE MODEL**: Does it match the next agent's required model? (check `.empresa/config/agents.json`)
+- [ ] If model mismatch → Change model BEFORE launching agent (Ctrl+Shift+M in OpenCode)
 - [ ] If new feature: Check if Discovery Form exists → If not, fill it
 - [ ] If new feature: Check if Research exists → If not, launch Researcher
 - [ ] Plan sprint
-- [ ] Launch task agents
+- [ ] Launch task agents (with correct model per agent)
 
 ---
 
@@ -797,6 +860,7 @@ Check in order:
 - **Never skip Designer + Auditor**: This was the proven winning formula (Exp5: 137/137 tests, WCAG AA).
 - **The Integrator is critical**: Without it, agents build islands that don't connect (failed Exp3).
 - If something doesn't work: Check the docs in `.empresa/`.
+- 🔴 **Cada agente usa un modelo específico**: Ver `agents.json`. Kimi K2.6 → Specifier. MiniMax M2.7 → Frontend/Backend. DeepSeek V4 Flash → QA. Qwen3.5 Plus → resto. Cambia modelo ANTES de lanzar cada agente.
 
 ---
 
