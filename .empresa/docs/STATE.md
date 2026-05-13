@@ -10,9 +10,12 @@
 | Agent | Status | Current Task |
 |-------|--------|-------------|
 | DESIGNER | ⏳ Idle | - |
+| ACCESSIBILITY-AUDITOR | ⏳ Idle | - |
 | FRONTEND | ⏳ Idle | - |
 | BACKEND | ⏳ Idle | - |
 | QA | ⏳ Idle | - |
+| INTEGRATOR | ⏳ Idle | - |
+| REALITY-CHECKER | ⏳ Idle | - |
 
 ## Key Metrics
 - Tasks completed: 0

@@ -1,6 +1,70 @@
 # Changelog - AI-SQUAD Framework
 
-## [6.2] - 30/04/2026 - Personality & Evidence Edition
+## [6.3] - 13/05/2026 - Integration Edition 🚀
+
+### 🆕 Major Changes
+
+**Integrator Agent — The Missing Piece**
+- New INTEGRATOR-AGENT: Verifies cross-agent contracts before any feature is "Done"
+- 5-dimension cross-agent contract audit: API shapes, Data shapes, Router wiring, Import chains, E2E flow
+- Runs AFTER build, BEFORE verification — catches the #1 failure mode from experiments
+- Blocks sprints on contract mismatch with exact diff evidence
+- Maintains `docs/integration/*.md` audit reports
+
+**Loop-Closer Protocol**
+- QA-AGENT upgraded to track bugs from detection → assignment → fix → verification
+- Every GAP_APPROVAL item must be resolved before feature completion
+- No bug stays open without action — closes the cycle that experiments proved was broken
+
+**Corrected Phase Order (Designer → A11y → Devs → Integrator)**
+- **Phase 3**: DESIGNER goes FIRST (sequential) — visual identity before code
+- **Phase 3.5**: ACCESSIBILITY-AUDITOR goes SECOND (sequential) — WCAG audit before devs
+- **Phase 4**: BUILD (Frontend + Backend + QA parallel) — devs start after A11y approval
+- **Phase 5**: INTEGRATE (Integrator sequential) — verifies connections
+- **Phase 6**: VERIFY (Reality Checker) — visual evidence + production readiness
+- **Phase 7**: CEO INTEGRATE — manual end-to-end verification
+- **Phase 8**: DOCUMENT — update state docs
+- This order was proven by Exp5 (137/137 tests, WCAG AA) vs Exp1-4 failures
+
+**Integration Contracts Skill**
+- New structured protocol for verifying cross-agent interfaces
+- 5 integration dimensions with automated verification commands
+- Integrates with Placebo Coding detection
+- Connects to Loop-Closer for bug tracking
+
+**Reality Checker Gatekeeping Authority (strengthened)**
+- Can now BLOCK production, not just advise
+- Complements Integrator: Integrator checks connections, Reality Checker checks usability
+- "NO" is binding — CEO can override but must document why
+
+**Experimental Learnings Doctrine**
+- New section in PROMPT-INICIAL.md codifying lessons from 5 experiments
+- Integration First, Designer First, Loop Closer, Less Docs/More Validation, The "No" Doctrine
+- Each doctrine backed by specific experiment results
+
+### 🧠 Based on Experimental Findings
+
+These changes directly address the 3 root problems identified in Exp1-5:
+
+| Problem | Solution |
+|---------|----------|
+| Integration is the bottleneck | **Integrator Agent** verifies all cross-agent connections |
+| The cycle doesn't close | **Loop-Closer Protocol** tracks bugs to resolution |
+| Wrong build order | **Corrected phases**: Designer → A11y → Devs → Integrator |
+
+### 📚 Documentation Updated
+- PROMPT-INICIAL.md: 9 agents, corrected phases, experimental learnings doctrine
+- .empresa/prompts/integrator-agent.md: New agent — cross-agent contract enforcer
+- .empresa/skills/integration-contracts.md: New skill — structured verification protocol
+- .empresa/prompts/qa-agent.md: Added loop-closer responsibility
+- .empresa/prompts/reality-checker.md: Strengthened gatekeeping authority
+- .empresa/skills/superpowers-discipline.md: 8-phase corrected order with experimental rationale
+- .empresa/docs/BACKLOG.md: Added INTEGRATOR + ACCESSIBILITY-AUDITOR task sections
+- .empresa/docs/STATE.md: Updated team roster (7 agents)
+- README.md: v6.3 with new agents, corrected workflow, 5 integration dimensions
+- CHANGELOG.md: v6.3 release notes
+
+---
 
 ### 🆕 Major Changes
 
