@@ -1,139 +1,78 @@
 # 🚀 INIT - Get Started in 2 Minutes
 
-Step-by-step guide to activate the framework in your project.
+Step-by-step guide to activate AI-SQUAD v7.0 in your project.
 
 ---
 
 ## Step 1: Copy the Framework
 
 ```bash
-# 1. Go to your project (where package.json lives)
+# 1. Go to your project root
 cd /path/to/your-project
 
-# 2. Copy the .empresa/ folder
-cp -r /path/to/empresa-ia-framework/.empresa/ ./
+# 2. Copy the .ai-squad/ folder (core framework)
+cp -r /path/to/ai-squad/.ai-squad/ ./
 
-# 3. Copy documentation files
-cp /path/to/empresa-ia-framework/*.md ./
+# 3. Copy root documentation files
+cp /path/to/ai-squad/*.md ./
 
 # 4. Copy templates
-cp -r /path/to/empresa-ia-framework/templates ./
+cp /path/to/ai-squad/templates/ ./
 
-# 5. Verify everything copied
-ls -la .empresa/
-ls -la *.md
+# 5. Verify
+ls -la .ai-squad/
 ```
 
 **Expected result**:
 ```
-.empresa/
-├── config/
-│   └── opencode.json
-├── content/
-│   ├── about-brand.md
-│   └── brand-voice.md
-├── docs/
-│   ├── BACKLOG.md
-│   ├── ACTIVE.md
-│   ├── DONE.md
-│   └── STATE.md
-├── prompts/
-│   ├── designer-agent.md
-│   ├── frontend-agent.md
-│   ├── backend-agent.md
-│   └── qa-agent.md
-└── skills/
-    ├── brand-voice-builder.md
-    ├── content-matrix.md
-    ├── post-writer.md
-    └── [more skills...]
-
-DESIGN.md
-PROMPT-INICIAL.md
-INIT.md
-README.md
+.ai-squad/
+├── agents/        # 12 agent prompts (10 dev + 2 new)
+├── config/        # Configuration files
+├── content/       # Brand content
+├── docs/          # State files + architecture/ + ux/
+├── skills/        # 22 specialized skills
+├── templates/     # ADR, VISION, UX_DIRECTION, TASK
+└── CONFIG.md      # Project config
 ```
 
 ---
 
-## Step 2: Configure Your Project
+## Step 2: Write Your Vision
 
-Edit `.empresa/CONFIG.md`:
+Edit `docs/VISION.md` — one paragraph in natural language:
 
-```markdown
-# Project Configuration
+> "I want a URL shortener where users can paste a long URL, get a short code, and track how many clicks it gets. No ads, no accounts required for basic use. Premium users get custom slugs and analytics."
 
-## Project
-- Name: [YOUR PROJECT NAME]
-- Type: [backend/frontend/fullstack]
-- Stack: [Node/React/Python/etc]
-```
+That's it. No tech decisions yet. Just what you want to build.
 
 ---
 
-## Step 3: Define Your First Sprint
+## Step 3: Start the AI
 
-Edit `.empresa/docs/BACKLOG.md`:
+Open your AI assistant and say:
 
-```markdown
-# 📋 BACKLOG - Sprint #1
+> "Read PROMPT-INICIAL.md and docs/VISION.md. I'm ready to architect this project."
 
-## Sprint Goal
-[Describe what you want to achieve]
+The AI will now guide you through the Definition phases:
+1. Research options (Researcher)
+2. Architecture decisions (Architect → you choose ADRs)
+3. UX decisions (UX Architect → you choose flows)
+4. Visual decisions (Designer → you choose direction)
 
-## DESIGNER Tasks
-- [ ] Create DESIGN.md with color tokens
-- [ ] Map user flow in UX_FLOW.md
-
-## FRONTEND Tasks
-- [ ] Create base layout
-- [ ] Implement Header component
-- [ ] Create login page
-
-## BACKEND Tasks
-- [ ] Setup server
-- [ ] Create /api/health endpoint
-- [ ] Implement JWT auth
-
-## QA Tasks
-- [ ] Setup testing framework
-- [ ] Tests for auth service
-- [ ] Coverage > 70%
-```
+Then automatically move to Execution.
 
 ---
 
-## Step 4: Launch the AI
+## Step 4: What to Expect
 
-### Option A: Using OpenCode/Claude Code (RECOMMENDED)
+**Your job during Definition**:
+- Read options presented by agents
+- Choose in natural language ("Option A", "SQLite is fine for now", "I prefer mobile-first")
+- Spend 5-10 minutes per decision point
 
-Tell your AI:
-
-> "Read PROMPT-INICIAL.md and start acting as CEO."
-
-The AI will automatically:
-1. Read the framework
-2. Interview you about requirements
-3. Launch agents in parallel
-4. Monitor progress
-
-### Option B: Manual Terminal Launch
-
-Open multiple AI sessions, paste each prompt:
-
-```bash
-# Session 1 - DESIGNER
-cat .empresa/prompts/designer-agent.md
-
-# Session 2 - FRONTEND
-cat .empresa/prompts/frontend-agent.md
-
-# Session 3 - BACKEND
-cat .empresa/prompts/backend-agent.md
-
-# Session 4 - QA
-cat .empresa/prompts/qa-agent.md
-```
+**Your job during Execution**:
+- Nothing. Agents execute locked tasks.
+- Validate at the end (5-minute review)
 
 ---
 
@@ -141,68 +80,45 @@ cat .empresa/prompts/qa-agent.md
 
 ```bash
 # Check overall status
-cat .empresa/docs/STATE.md
+cat .ai-squad/docs/STATE.md
 
 # See who's doing what
-cat .empresa/docs/ACTIVE.md
+cat .ai-squad/docs/ACTIVE.md
 
-# See what's completed
-cat .empresa/docs/DONE.md
+# See completed tasks
+cat .ai-squad/docs/DONE.md
 
-# Check pending tasks
-cat .empresa/docs/BACKLOG.md
-```
-
----
-
-## Step 6: Verify Results
-
-When agents report completion:
-
-```bash
-# Run tests
-npm test
-
-# Verify build
-npm run build
-
-# Check coverage
-npm run coverage
+# Check architecture decisions
+ls docs/architecture/
 ```
 
 ---
 
 ## Startup Checklist
 
-- [ ] `.empresa/` copied to project
-- [ ] `.md` files copied to root
-- [ ] `DESIGN.md` configured (or run brand-voice-builder)
-- [ ] `BACKLOG.md` defined
-- [ ] AI launched with PROMPT-INICIAL.md
+- [ ] `.ai-squad/` copied to project
+- [ ] Root `.md` files copied
+- [ ] `docs/VISION.md` written
+- [ ] AI launched with `PROMPT-INICIAL.md`
+- [ ] First ADR presented → you decide
+- [ ] Proceed through Definition phases
+- [ ] When Spec is locked → agents execute
 
 ---
 
 ## Troubleshooting
 
-### "Can't find BACKLOG.md"
-```bash
-ls -la .empresa/
-ls -la .empresa/docs/
-```
+### "Agent won't stop asking questions"
+That's by design in v7.0. It's called the "Preguntón Principle". Every decision needs your approval. Batch answers — read all options, then respond to all at once.
 
-### "Agent doesn't know what to do"
-1. Verify BACKLOG.md has clear tasks
-2. Use the task format shown above
+### "Can I skip some decisions?"
+Yes. Say "I trust your recommendation on this one" and the agent uses their default. It'll be documented as "Owner delegated" in the ADR.
 
-### "Two agents want the same file"
-1. Stop everything
-2. Redistribute tasks in BACKLOG.md
-3. Each agent has exclusive access to their files
+### "This is too slow"
+Definition takes 10-15 minutes for a simple project, 30-45 for a complex one. Then agents execute everything without you. Total time < traditional development.
 
 ---
 
 ## Next Steps
-
-After setup, read:
 
 👉 **[README.md](./README.md)** — Full framework overview

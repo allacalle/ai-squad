@@ -1,0 +1,186 @@
+{
+  "version": "7.0",
+  "nombre": "AI-SQUAD Framework — Human-Driven Architecture",
+
+  "paradigm": {
+    "note": "v7.0: The Owner (Software Engineer) makes ALL decisions. Agents propose options and execute locked tasks. No agent decides anything without Owner approval.",
+    "worlds": {
+      "definition": "Owner drives. Agents propose options with pros/cons. No code.",
+      "execution": "Agents execute locked tasks. Zero decisions."
+    }
+  },
+
+  "agentes": {
+    "researcher": {
+      "mundo": "definition",
+      "modelo": "Qwen3.5 Plus",
+      "backup": "DeepSeek V4 Flash",
+      "coste": "bajo",
+      "escribe_codigo": false,
+      "propose_options": true,
+      "skills": ["tech-research", "competitive-analysis", "domain-knowledge"],
+      "archivos": ["docs/research/*.md"],
+      "excluye": ["src/**/*"],
+      "nota": "v7.0: Investiga OPCIONES, no solo 'lo mejor'. Siempre encuentra 2-3 alternativas con evidencia."
+    },
+
+    "architect": {
+      "mundo": "definition",
+      "modelo": "Kimi K2.6",
+      "backup": "Qwen3.5 Plus",
+      "coste": "alto",
+      "escribe_codigo": false,
+      "propose_options": true,
+      "skills": ["architecture-design", "adr-creation", "option-analysis", "tradeoff-analysis"],
+      "archivos": ["docs/architecture/ADR-*.md"],
+      "excluye": ["src/**/*"],
+      "nota": "🆕 v7.0: Escribe ADRs con 2-3 opciones (pros/cons). Owner decide. El agente más importante de la Definición."
+    },
+
+    "ux-architect": {
+      "mundo": "definition",
+      "modelo": "Qwen3.5 Plus",
+      "backup": "DeepSeek V4 Flash",
+      "coste": "bajo",
+      "escribe_codigo": false,
+      "propose_options": true,
+      "skills": ["ux-flow", "responsive-strategy", "user-journey", "accessibility-planning"],
+      "archivos": ["docs/ux/UX_DIRECTION.md", "docs/ux/UX_FLOW.md"],
+      "excluye": ["src/**/*"],
+      "nota": "🆕 v7.0: Propone flows de UX, estrategia responsive, tono/brand. Owner decide cada uno."
+    },
+
+    "specifier": {
+      "mundo": "definition",
+      "modelo": "Kimi K2.6",
+      "backup": "MiniMax M2.7",
+      "coste": "alto",
+      "escribe_codigo": false,
+      "propose_options": false,
+      "skills": ["contract-writing", "api-design", "data-modeling", "adr-integration"],
+      "archivos": ["docs/specs/*.md"],
+      "excluye": ["src/**/*"],
+      "nota": "v7.0: Escribe specs CONTRA ADRs bloqueados. Cada spec referencia los ADRs que implementa. NO decide nada."
+    },
+
+    "designer": {
+      "mundo": "definition",
+      "modelo": "GLM-5.1",
+      "backup": "Qwen3.5 Plus",
+      "coste": "medio",
+      "escribe_codigo": false,
+      "propose_options": true,
+      "skills": ["direction-picker", "design-systems", "whimsy-injector", "accessibility-design"],
+      "archivos": ["DESIGN.md", "docs/UX_FLOW.md"],
+      "excluye": ["src/**/*"],
+      "nota": "v7.0: Propone 2-3 direcciones visuales. Owner elige. Ya NO decide la dirección solo."
+    },
+
+    "accessibility-auditor": {
+      "mundo": "definition",
+      "modelo": "Qwen3.5 Plus",
+      "backup": "DeepSeek V4 Flash",
+      "coste": "bajo",
+      "escribe_codigo": false,
+      "propose_options": false,
+      "skills": ["wcag-audit", "screen-reader-testing", "color-contrast", "keyboard-navigation"],
+      "archivos": ["docs/a11y-audits/*.md"],
+      "excluye": ["src/**/*"],
+      "nota": "WCAG 2.2 AA. Solo audita DESIGN.md. Va DESPUÉS de que Owner elige dirección."
+    },
+
+    "frontend": {
+      "mundo": "execution",
+      "modelo": "MiniMax M2.7",
+      "backup": "MiniMax M2.5",
+      "coste": "medio-bajo",
+      "escribe_codigo": true,
+      "propose_options": false,
+      "skills": ["react-development", "css-modules", "vanilla-js", "html5-semantic", "responsive-design", "vitest-testing"],
+      "archivos": ["src/components/**/*", "src/hooks/**/*", "src/*.css", "src/App.tsx", "public/**/*"],
+      "excluye": ["src/routes/**/*", "src/services/**/*", "src/**/*.test.*", "docs/architecture/*", "docs/specs/*"],
+      "nota": "v7.0: Pura ejecución. CERO decisiones. Si algo es ambiguo, para y pregunta. NO innova."
+    },
+
+    "backend": {
+      "mundo": "execution",
+      "modelo": "MiniMax M2.7",
+      "backup": "MiniMax M2.5",
+      "coste": "medio-bajo",
+      "escribe_codigo": true,
+      "propose_options": false,
+      "skills": ["express-framework", "fastapi-framework", "api-design", "auth-jwt", "database-design"],
+      "archivos": ["src/routes/**/*", "src/services/**/*", "src/api/**/*", "src/logic/**/*", "src/types/**/*", "src/middleware/**/*", "server.*"],
+      "excluye": ["src/components/**/*", "src/**/*.test.*", "docs/architecture/*", "docs/specs/*"],
+      "nota": "v7.0: Pura ejecución. CERO decisiones. Si algo es ambiguo, para y pregunta. NO innova."
+    },
+
+    "qa": {
+      "mundo": "execution",
+      "modelo": "DeepSeek V4 Flash",
+      "backup": "GLM-5",
+      "coste": "muy-bajo",
+      "escribe_codigo": true,
+      "propose_options": false,
+      "skills": ["vitest-testing", "jest-testing", "supertest-api", "anti-slop-checklist", "adr-compliance", "loop-closer"],
+      "archivos": ["src/**/*.test.*", "tests/**/*", "coverage/**/*"],
+      "excluye": [],
+      "nota": "v7.0: Verifica que el código cumple ADRs además de specs. Bloquea si hay violaciones arquitectónicas."
+    },
+
+    "integrator": {
+      "mundo": "execution",
+      "modelo": "Qwen3.5 Plus",
+      "backup": "DeepSeek V4 Flash",
+      "coste": "bajo",
+      "escribe_codigo": true,
+      "propose_options": false,
+      "skills": ["adr-verification", "cross-agent-audit", "api-verification", "loop-closer"],
+      "archivos": ["docs/integration/*.md", "tests/integration/**/*"],
+      "excluye": ["src/**/*"],
+      "nota": "v7.0: Verifica que el código refleja los ADRs. No solo conexiones — integridad arquitectónica."
+    },
+
+    "reality-checker": {
+      "mundo": "execution",
+      "modelo": "Qwen3.5 Plus",
+      "backup": "DeepSeek V4 Flash",
+      "coste": "bajo",
+      "escribe_codigo": false,
+      "propose_options": false,
+      "skills": ["visual-evidence", "user-journey-testing", "production-readiness", "spec-vs-reality"],
+      "archivos": ["docs/reality-checks/*.md"],
+      "excluye": ["src/**/*"],
+      "nota": "Gatekeeper visual. Default: NEEDS WORK. Va ÚLTIMO."
+    }
+  },
+
+  "model_usage_summary": {
+    "version": "7.0",
+    "Kimi K2.6": {
+      "agentes": ["architect", "specifier"],
+      "fase": "0.7 (Architecture), 2 (Spec)",
+      "coste_estimado": "Alto — solo para decisiones que requieren precisión quirúrgica"
+    },
+    "MiniMax M2.7": {
+      "agentes": ["frontend", "backend"],
+      "fase": "4 (Build)",
+      "coste_estimado": "Medio — 2 agentes en paralelo"
+    },
+    "GLM-5.1": {
+      "agentes": ["designer"],
+      "fase": "1.5 (Design)",
+      "coste_estimado": "Medio — 1 agente"
+    },
+    "Qwen3.5 Plus": {
+      "agentes": ["researcher", "ux-architect", "accessibility-auditor", "integrator", "reality-checker"],
+      "fase": "0.5, 1, 1.5, 5, 6",
+      "coste_estimado": "Bajo — 5 agentes secuenciales"
+    },
+    "DeepSeek V4 Flash": {
+      "agentes": ["qa"],
+      "fase": "4 (Build)",
+      "coste_estimado": "Muy bajo — ideal para tests masivos"
+    }
+  }
+}

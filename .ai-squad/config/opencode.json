@@ -1,9 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "ceo",
+  "default_agent": "orchestrator",
   "agent": {
-    "ceo": {
-      "description": "Chief Executive Officer - coordina todo el equipo de desarrollo, toma decisiones estratégicas",
+    "orchestrator": {
+      "description": "v7.0 Orchestrator - coordina el squad, propone opciones, ejecuta tareas bloqueadas. NO toma decisiones arquitectónicas.",
       "tools": {
         "skill": true,
         "glob": true,
