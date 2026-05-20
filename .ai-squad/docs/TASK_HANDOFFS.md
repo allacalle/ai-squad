@@ -1,8 +1,8 @@
 # Task Handoffs — AI-SQUAD v7.1
 
-Plantillas de handoff listas para copiar-pegar-lanzar a cada agente. El orquestador NO debe escribir código — debe usar estos handoffs para delegar.
+Ready-to-use handoff templates for copy-paste-launch to each agent. The orchestrator MUST NOT write code — it must use these handoffs to delegate.
 
-**v7.1**: Todos los handoffs incluyen `decision_type` y `model_required`.
+**v7.1**: All handoffs include `decision_type` and `model_required`.
 
 ---
 
@@ -104,15 +104,15 @@ SPECS: todos en docs/specs/
 
 ---
 
-## Uso
+## Usage
 
-1. Orquestador lee BACKLOG.md
-2. Copia el template correspondiente
-3. Rellena los campos con la info de la tarea + spec + ADR
-4. Lanza al agente con el handoff completo
-5. Marca en ACTIVE.md: `{TASK-ID} → {Agent} → IN_PROGRESS`
+1. Orchestrator reads BACKLOG.md
+2. Copies the corresponding template
+3. Fills in the fields with task info + spec + ADR
+4. Launches the agent with the complete handoff
+5. Marks in ACTIVE.md: `{TASK-ID} → {Agent} → IN_PROGRESS`
 
-**El orquestador NO toca el archivo hasta que el agente reporta DONE.**
+**The orchestrator does NOT touch the file until the agent reports DONE.**
 
 ---
 

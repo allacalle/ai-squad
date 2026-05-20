@@ -1,41 +1,41 @@
 # Closure Checklist — AI-SQUAD v7.1
 
-Protocolo de cierre en 4 pasos. Ejecutar al finalizar cada sprint/experimento.
+4-step closure protocol. Run at the end of each sprint/experiment.
 
-## Paso 1: Sync Docs
+## Step 1: Sync Docs
 
-- [ ] `docs/BACKLOG.md` — marcar todas las tareas como DONE o archive
-- [ ] `.ai-squad/docs/ACTIVE.md` — limpiar (vacío = sin tareas activas)
-- [ ] `.ai-squad/docs/DONE.md` — añadir resumen del sprint
-- [ ] `.ai-squad/docs/STATE.md` — actualizar estado actual
-- [ ] `.ai-squad/docs/GAP_APPROVAL.md` — cerrar gaps resueltos
+- [ ] `docs/BACKLOG.md` — mark all tasks as DONE or archive
+- [ ] `.ai-squad/docs/ACTIVE.md` — clear (empty = no active tasks)
+- [ ] `.ai-squad/docs/DONE.md` — add sprint summary
+- [ ] `.ai-squad/docs/STATE.md` — update current state
+- [ ] `.ai-squad/docs/GAP_APPROVAL.md` — close resolved gaps
 
-## Paso 2: Engram Memory
+## Step 2: Engram Memory
 
-- [ ] Guardar summary en Engram:
-  - Qué se construyó
-  - Decisiones clave
-  - Bugs encontrados y corregidos
-  - Lecciones aprendidas
+- [ ] Save summary to Engram:
+  - What was built
+  - Key decisions
+  - Bugs found and fixed
+  - Lessons learned
 
-## Paso 3: Startup Instructions
+## Step 3: Startup Instructions
 
-- [ ] Generar `SERVIDOR.txt` (o actualizar) con:
-  - Puerto usado
-  - Comando de arranque
-  - Comando de recovery (`lsof -i :PUERTO`, `kill`)
-- [ ] Si existe, generar/actualizar `arrancar.sh`
+- [ ] Generate `SERVIDOR.txt` (or update) with:
+  - Port used
+  - Startup command
+  - Recovery command (`lsof -i :PORT`, `kill`)
+- [ ] If it exists, generate/update `arrancar.sh`
 
-## Paso 4: Cost Tracking
+## Step 4: Cost Tracking
 
-- [ ] Registrar modelos usados en `.ai-squad/docs/COST_TRACKING.md`
-  - Qué agente ejecutó cada fase
-  - Qué modelo se usó realmente
-  - Desviaciones respecto a agents.json
+- [ ] Log models used in `.ai-squad/docs/COST_TRACKING.md`
+  - Which agent executed each phase
+  - Which model was actually used
+  - Deviations from agents.json
 
 ---
 
-## Post-Cierre
+## Post-Closure
 
-- [ ] Commit con mensaje: "cierre: [sprint-name] — [summary]"
-- [ ] Si es experimento: copiar resumen a diario-de-experimentos/
+- [ ] Commit with message: "closure: [sprint-name] — [summary]"
+- [ ] If experiment: copy summary to diario-de-experimentos/

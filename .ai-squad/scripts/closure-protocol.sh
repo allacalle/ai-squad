@@ -1,11 +1,11 @@
 #!/bin/bash
 # AI-SQUAD v7.1 Closure Protocol
-# Ejecutar al finalizar cada sprint/experimento
+# Run at the end of each sprint/experiment
 # Usage: bash .ai-squad/scripts/closure-protocol.sh [sprint-name]
 
 set -e
 
-SPRINT_NAME="${1:-sin-nombre}"
+SPRINT_NAME="${1:-unnamed}"
 DATE=$(date +%Y-%m-%d)
 
 echo "=== AI-SQUAD Closure Protocol: $SPRINT_NAME ==="
@@ -34,7 +34,7 @@ fi
 
 # Step 2: Generate Engram summary prompt
 echo ""
-echo "[2/4] Engram summary prompt (copy-paste for the AI):"
+echo "[2/4] Engram summary (copy-paste for the AI):"
 echo "---------------------------------------------------"
 echo "Save to Engram: Sprint $SPRINT_NAME completed on $DATE."
 echo "Summary: <write summary here>"
@@ -45,10 +45,10 @@ echo ""
 echo "[3/4] Checking startup instructions..."
 if [ ! -f "SERVIDOR.txt" ]; then
     echo "# SERVIDOR — $SPRINT_NAME" > SERVIDOR.txt
-    echo "Generado: $DATE" >> SERVIDOR.txt
-    echo "Puerto: " >> SERVIDOR.txt
-    echo "Comando: " >> SERVIDOR.txt
-    echo "Recovery: lsof -i :PUERTO && kill PID" >> SERVIDOR.txt
+    echo "Generated: $DATE" >> SERVIDOR.txt
+    echo "Port: " >> SERVIDOR.txt
+    echo "Command: " >> SERVIDOR.txt
+    echo "Recovery: lsof -i :PORT && kill PID" >> SERVIDOR.txt
     echo "SERVIDOR.txt template created ✓"
 else
     echo "SERVIDOR.txt already exists (update manually) ✓"
@@ -56,7 +56,7 @@ fi
 
 # Step 4: Cost tracking reminder
 echo ""
-echo "[4/4] Cost tracking reminder:"
+echo "[4/4] Cost tracking:"
 echo "Update .ai-squad/docs/COST_TRACKING.md with models used"
 echo ""
 

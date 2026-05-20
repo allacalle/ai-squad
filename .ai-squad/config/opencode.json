@@ -3,7 +3,7 @@
   "default_agent": "orchestrator",
   "agent": {
     "orchestrator": {
-      "description": "v7.0 Orchestrator - coordina el squad, propone opciones, ejecuta tareas bloqueadas. NO toma decisiones arquitectónicas.",
+      "description": "v7.1 Orchestrator - coordinates the squad, proposes options, executes locked tasks. Does NOT make architectural decisions.",
       "tools": {
         "skill": true,
         "glob": true,
@@ -16,7 +16,7 @@
       }
     },
     "project-manager": {
-      "description": "Project Manager - planificación, sprints y coordinación",
+      "description": "Project Manager - planning, sprints and coordination",
       "tools": {
         "skill": true,
         "read": true,
@@ -24,7 +24,7 @@
       }
     },
     "tech-lead": {
-      "description": "Tech Lead - arquitectura, revisión técnica y estándares de calidad",
+      "description": "Tech Lead - architecture, technical review and quality standards",
       "tools": {
         "skill": true,
         "read": true,
@@ -34,7 +34,7 @@
       }
     },
     "backend-dev": {
-      "description": "Backend Developer - APIs, servicios y lógica de servidor",
+      "description": "Backend Developer - APIs, services and server logic",
       "tools": {
         "skill": true,
         "read": true,
@@ -45,7 +45,7 @@
       }
     },
     "frontend-dev": {
-      "description": "Frontend Developer - interfaces, componentes y experiencia de usuario",
+      "description": "Frontend Developer - interfaces, components and user experience",
       "tools": {
         "skill": true,
         "read": true,
@@ -56,7 +56,7 @@
       }
     },
     "designer": {
-      "description": "Designer - UI/UX, identidad visual, STYLE_GUIDE y UX_FLOW",
+      "description": "Designer - UI/UX, visual identity, STYLE_GUIDE and UX_FLOW",
       "tools": {
         "skill": true,
         "read": true,
@@ -64,7 +64,7 @@
       }
     },
     "qa-engineer": {
-      "description": "QA Engineer - testing, coverage y aseguramiento de calidad",
+      "description": "QA Engineer - testing, coverage and quality assurance",
       "tools": {
         "skill": true,
         "read": true,
@@ -73,7 +73,7 @@
       }
     },
     "documentador": {
-      "description": "Documentador - documentación técnica, README y guías de uso",
+      "description": "Documenter - technical documentation, README and usage guides",
       "tools": {
         "skill": true,
         "read": true,
@@ -82,7 +82,7 @@
       }
     },
     "devops-eng": {
-      "description": "DevOps Engineer - CI/CD, infraestructura y despliegue",
+      "description": "DevOps Engineer - CI/CD, infrastructure and deployment",
       "tools": {
         "skill": true,
         "read": true,
@@ -92,7 +92,7 @@
       }
     },
     "security-spec": {
-      "description": "Security Specialist - auditoría, pentesting y seguridad",
+      "description": "Security Specialist - auditing, pentesting and security",
       "tools": {
         "skill": true,
         "read": true,
@@ -101,7 +101,7 @@
       }
     },
     "ai-engineer": {
-      "description": "AI/Data Engineer - LLMs, RAG y arquitectura de datos",
+      "description": "AI/Data Engineer - LLMs, RAG and data architecture",
       "tools": {
         "skill": true,
         "read": true,
@@ -112,7 +112,7 @@
       }
     },
     "business-analyst": {
-      "description": "Business Analyst - requerimientos y análisis de negocio",
+      "description": "Business Analyst - requirements and business analysis",
       "tools": {
         "skill": true,
         "read": true,
@@ -120,7 +120,7 @@
       }
     },
     "sre-engineer": {
-      "description": "SRE Engineer - fiabilidad, escalabilidad y performance",
+      "description": "SRE Engineer - reliability, scalability and performance",
       "tools": {
         "skill": true,
         "read": true,
@@ -129,7 +129,7 @@
       }
     },
     "process-auditor": {
-      "description": "v7.1 Process Auditor - watchdog que verifica el proceso, bloquea transiciones si hay violaciones",
+      "description": "v7.1 Process Auditor - watchdog that verifies the process, blocks transitions on violations",
       "tools": {
         "skill": true,
         "glob": true,
@@ -139,7 +139,7 @@
       }
     },
     "uncertainty-reporter": {
-      "description": "v7.1 Uncertainty Reporter - reporta incertidumbre de los agentes al Owner",
+      "description": "v7.1 Uncertainty Reporter - reports agent uncertainty to the Owner",
       "tools": {
         "skill": true,
         "read": true,

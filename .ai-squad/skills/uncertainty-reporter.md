@@ -57,7 +57,7 @@ Report uncertainty when ANY of these are true:
 What: Should the API return 400 or 422 for validation errors?
 Why: The spec says "validation error" but doesn't specify the HTTP status code.
 Confidence: 60%
-Need: Owner, ¿400 Bad Request o 422 Unprocessable Entity?
+Need: Owner, 400 Bad Request or 422 Unprocessable Entity?
 ```
 
 **Bad uncertainty report (don't do this):**

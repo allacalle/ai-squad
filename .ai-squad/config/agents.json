@@ -21,7 +21,7 @@
       "skills": ["tech-research", "competitive-analysis", "domain-knowledge", "decision-type-routing"],
       "archivos": ["docs/research/*.md"],
       "excluye": ["src/**/*"],
-      "nota": "v7.1: Clasifica decisiones como ABANICO AMPLIO. Reduce 30→3 opciones con evidencia. NO presenta listas completas."
+      "nota": "v7.1: Classifies decisions as ABANICO AMPLIO. Reduces 30→3 options with evidence. Does NOT present full lists."
     },
 
     "architect": {
@@ -34,7 +34,7 @@
       "skills": ["architecture-design", "adr-creation", "option-analysis", "tradeoff-analysis", "decision-type-routing"],
       "archivos": ["docs/architecture/ADR-*.md"],
       "excluye": ["src/**/*"],
-      "nota": "v7.1: Cada ADR clasifica su tipo. Opciones filtradas de todas las viables a 2-3."
+      "nota": "v7.1: Each ADR classifies its type. Options filtered from all viable to 2-3."
     },
 
     "ux-architect": {
@@ -47,7 +47,7 @@
       "skills": ["ux-flow", "responsive-strategy", "user-journey", "accessibility-planning", "decision-type-routing"],
       "archivos": ["docs/ux/UX_DIRECTION.md", "docs/ux/UX_FLOW.md"],
       "excluye": ["src/**/*"],
-      "nota": "v7.1: Las decisiones de UX son INSTINTIVAS. Pregunta directamente al Owner, NO investiga opciones."
+      "nota": "v7.1: UX decisions are INSTINTIVO. Ask the Owner directly, do NOT research options."
     },
 
     "designer": {
@@ -60,7 +60,7 @@
       "skills": ["direction-picker", "design-systems", "whimsy-injector", "accessibility-design", "decision-type-routing"],
       "archivos": ["DESIGN.md", "docs/UX_FLOW.md"],
       "excluye": ["src/**/*"],
-      "nota": "v7.1: Direcciones visuales = INSTINTIVO. Propone 2-3, Owner elige por gusto."
+      "nota": "v7.1: Visual directions = INSTINTIVO. Proposes 2-3, Owner picks by taste."
     },
 
     "accessibility-auditor": {
@@ -73,7 +73,7 @@
       "skills": ["wcag-audit", "screen-reader-testing", "color-contrast", "keyboard-navigation"],
       "archivos": ["docs/a11y-audits/*.md"],
       "excluye": ["src/**/*"],
-      "nota": "WCAG 2.2 AA. Decisiones CERRADAS — aplicar estándar. Solo audita DESIGN.md."
+      "nota": "WCAG 2.2 AA. CERRADO decisions — apply the standard. Only audits DESIGN.md."
     },
 
     "specifier": {
@@ -86,7 +86,7 @@
       "skills": ["contract-writing", "api-design", "data-modeling", "adr-integration"],
       "archivos": ["docs/specs/*.md"],
       "excluye": ["src/**/*"],
-      "nota": "v7.1: Escribe contratos contra ADRs. Decisiones CERRADAS — no hay debate."
+      "nota": "v7.1: Writes contracts against ADRs. CERRADO decisions — no debate."
     },
 
     "frontend": {
@@ -99,7 +99,7 @@
       "skills": ["react-development", "css-modules", "vanilla-js", "html5-semantic", "responsive-design", "vitest-testing"],
       "archivos": ["src/components/**/*", "src/hooks/**/*", "src/*.css", "src/App.tsx", "public/**/*"],
       "excluye": ["src/routes/**/*", "src/services/**/*", "src/**/*.test.*", "docs/architecture/*", "docs/specs/*"],
-      "nota": "v7.1: Pura ejecución CERRADA. Si algo es ambiguo, usa Uncertainty Reporter. NO asume."
+      "nota": "v7.1: Pure CERRADO execution. If something is ambiguous, use Uncertainty Reporter. Do NOT assume."
     },
 
     "backend": {
@@ -112,7 +112,7 @@
       "skills": ["express-framework", "fastapi-framework", "api-design", "auth-jwt", "database-design"],
       "archivos": ["src/routes/**/*", "src/services/**/*", "src/api/**/*", "src/logic/**/*", "src/types/**/*", "src/middleware/**/*", "server.*"],
       "excluye": ["src/components/**/*", "src/**/*.test.*", "docs/architecture/*", "docs/specs/*"],
-      "nota": "v7.1: Pura ejecución CERRADA. Si algo es ambiguo, usa Uncertainty Reporter. NO asume."
+      "nota": "v7.1: Pure CERRADO execution. If something is ambiguous, use Uncertainty Reporter. Do NOT assume."
     },
 
     "qa": {
@@ -125,7 +125,7 @@
       "skills": ["vitest-testing", "jest-testing", "supertest-api", "anti-slop-checklist", "adr-compliance", "loop-closer"],
       "archivos": ["src/**/*.test.*", "tests/**/*", "coverage/**/*"],
       "excluye": [],
-      "nota": "v7.1: Verifica ADRs + specs. Decisiones CERRADAS. Detecta código muerto en post-build."
+      "nota": "v7.1: Verifies ADRs + specs. CERRADO decisions. Detects dead code in post-build."
     },
 
     "integrator": {
@@ -138,7 +138,7 @@
       "skills": ["adr-verification", "cross-agent-audit", "api-verification", "loop-closer", "dead-code-detection"],
       "archivos": ["docs/integration/*.md", "tests/integration/**/*"],
       "excluye": ["src/**/*"],
-      "nota": "v7.1: Post-merge audit. Detecta código muerto, archivos huérfanos, divergencia test/prod."
+      "nota": "v7.1: Post-merge audit. Detects dead code, orphan files, test/prod divergence."
     },
 
     "reality-checker": {
@@ -151,7 +151,7 @@
       "skills": ["visual-evidence", "user-journey-testing", "production-readiness", "spec-vs-reality"],
       "archivos": ["docs/reality-checks/*.md"],
       "excluye": ["src/**/*"],
-      "nota": "v7.1: Mixto. Juzgar usabilidad es INSTINTIVO. Verificar specs es CERRADO."
+      "nota": "v7.1: Mixed. Judging usability = INSTINTIVO. Verifying specs = CERRADO."
     },
 
     "process-auditor": {
@@ -164,22 +164,22 @@
       "skills": ["process-verification", "compliance-checking", "artifact-consistency"],
       "archivos": [".ai-squad/docs/AUDIT_LOG.md"],
       "excluye": ["src/**/*", "docs/**/*"],
-      "nota": "🆕 v7.1: Watchdog. Verifica que el proceso se sigue. Bloquea transiciones si hay violaciones."
+      "nota": "🆕 v7.1: Watchdog. Verifies the process is followed. Blocks transitions on violations."
     }
   },
 
   "skills": {
     "decision-type-routing": {
-      "modelo": "cualquiera",
-      "coste": "ninguno",
+      "modelo": "any",
+      "coste": "none",
       "agentes": ["todos"],
-      "nota": "🆕 v7.1: Todo agente debe clasificar sus decisiones antes de actuar."
+      "nota": "🆕 v7.1: Every agent must classify their decisions before acting."
     },
     "uncertainty-reporter": {
-      "modelo": "cualquiera",
-      "coste": "ninguno",
+      "modelo": "any",
+      "coste": "none",
       "agentes": ["frontend", "backend", "qa", "integrator"],
-      "nota": "🆕 v7.1: Agentes de ejecución usan este skill para reportar dudas en lugar de asumir."
+      "nota": "🆕 v7.1: Execution agents use this skill to report doubts instead of assuming."
     }
   },
 
@@ -188,12 +188,12 @@
     "Kimi K2.6": {
       "agentes": ["architect", "specifier"],
       "fase": "0.7 (Architecture), 2 (Spec)",
-      "coste_estimado": "Alto — solo para decisiones que requieren precisión quirúrgica"
+      "coste_estimado": "High — only for decisions requiring surgical precision"
     },
     "MiniMax M2.7": {
       "agentes": ["frontend", "backend"],
       "fase": "4 (Build)",
-      "coste_estimado": "Medio — 2 agentes en paralelo"
+      "coste_estimado": "Medium — 2 agents in parallel"
     },
     "GLM-5.1": {
       "agentes": ["designer"],
@@ -203,12 +203,12 @@
     "Qwen3.5 Plus": {
       "agentes": ["researcher", "ux-architect", "accessibility-auditor", "integrator", "reality-checker", "process-auditor"],
       "fase": "0.5, 1, 1.5, 5, 6, 3.5",
-      "coste_estimado": "Bajo — 6 agentes secuenciales"
+      "coste_estimado": "Low — 5 agents sequential (now 6 with Process Auditor)"
     },
     "DeepSeek V4 Flash": {
       "agentes": ["qa"],
       "fase": "4 (Build)",
-      "coste_estimado": "Muy bajo — ideal para tests masivos"
+      "coste_estimado": "Very low — ideal for mass testing"
     }
   }
 }

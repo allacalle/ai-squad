@@ -33,31 +33,31 @@ A complete **AI-powered software development framework** that puts **you** in co
 
 ## The Two Worlds
 
-### 🌍 MUNDO 1: DEFINITION (You drive, agents classify + propose)
+### WORLD 1: DEFINITION (You drive, agents classify + propose)
 
 No code. Only classified decisions. Agents know whether to research, ask, execute, or report uncertainty.
 
 ```
-FASE 0:  VISION       → You write 1 paragraph (what, for whom, why)
-FASE 0.5: RESEARCH    → Agent researches, filters 30→3 options
-FASE 0.7: ARCHITECTURE → Agent proposes classified ADRs, YOU choose
-FASE 1:  UX           → Agent asks directly (INSTINTIVO), YOU answer
-FASE 1.5: DESIGN      → Designer proposes 2-3 directions, YOU pick
-FASE 2:  SPEC TOTAL   → Specifier writes contracts (CERRADO)
-FASE 3:  PLAN TOTAL   → PM writes cuadriculated tasks
-FASE 3.5: AUDIT 🆕   → Process Auditor validates compliance
+PHASE 0:  VISION       → You write 1 paragraph (what, for whom, why)
+PHASE 0.5: RESEARCH    → Agent researches, filters 30→3 options
+PHASE 0.7: ARCHITECTURE → Agent proposes classified ADRs, YOU choose
+PHASE 1:  UX           → Agent asks directly (INSTINTIVO), YOU answer
+PHASE 1.5: DESIGN      → Designer proposes 2-3 directions, YOU pick
+PHASE 2:  SPEC TOTAL   → Specifier writes contracts (CERRADO)
+PHASE 3:  PLAN TOTAL   → PM writes "cuadriculated" tasks
+PHASE 3.5: AUDIT 🆕   → Process Auditor validates compliance
 ```
 
-### 🌍 MUNDO 2: EXECUTION (Agents only, zero decisions)
+### WORLD 2: EXECUTION (Agents only, zero decisions)
 
 No decisions. Only execution. Agents build exactly what was specified. Uncertainty is reported, never assumed.
 
 ```
-FASE 4:  BUILD        → FE + BE + QA execute locked tasks (CERRADO)
+PHASE 4:  BUILD        → FE + BE + QA execute locked tasks (CERRADO)
                          Uncertainty Reporter on ambiguity
-FASE 5:  INTEGRATE    → Integrator verifies code + post-merge audit 🆕
-FASE 6:  VERIFY       → QA + Reality Checker validate
-FASE 7:  CIERRE       → Closure Protocol 🆕 (docs + engram + startup)
+PHASE 5:  INTEGRATE    → Integrator verifies code + post-merge audit 🆕
+PHASE 6:  VERIFY       → QA + Reality Checker validate
+PHASE 7:  CLOSURE      → Closure Protocol 🆕 (docs + engram + startup)
 ```
 
 ---
@@ -68,12 +68,12 @@ FASE 7:  CIERRE       → Closure Protocol 🆕 (docs + engram + startup)
 
 | Type | When | Flow | Human Time |
 |------|------|------|-----------|
-| **ABANICO AMPLIO** | Many options (>5) | IA filters 30→3, Owner picks | ~10 seg |
-| **INSTINTIVO** | Taste/personal preference | IA asks directly, Owner answers | ~2 seg |
-| **CERRADO** | One correct answer | IA executes, optional confirm | ~0 seg |
-| **INCIERTO** | Missing context | IA reports uncertainty, Owner clarifies | ~5 seg |
+| **ABANICO AMPLIO** | Many options (>5) | AI filters 30→3, Owner picks | ~10s |
+| **INSTINTIVO** | Taste/personal preference | AI asks directly, Owner answers | ~2s |
+| **CERRADO** | One correct answer | AI executes, optional confirm | ~0s |
+| **INCIERTO** | Missing context | AI reports uncertainty, Owner clarifies | ~5s |
 
-Old "Preguntón Principle" (v7.0): always propose 2-3 options.
+Old "Preguntón" Principle (v7.0): always propose 2-3 options.
 New principle (v7.1): classify first, then choose the right flow.
 
 ---
