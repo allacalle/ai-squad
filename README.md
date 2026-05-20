@@ -1,12 +1,12 @@
-# AI-SQUAD v7.0 — Human-Driven Architecture
+# AI-SQUAD v7.1 — Decision Type Routing Edition
 
 > **You are the Software Engineer. The AI is your team.**
 >
-> Define the architecture. Validate every option. Then let 12 agents execute.
+> Every decision classified. Every assumption eliminated. Every process audited.
 >
-> *v7.0: Human-Driven Architecture — ADRs, two worlds, the "Preguntón" Principle*
+> *v7.1: Decision Type Routing — ABANICO AMPLIO, INSTINTIVO, CERRADO, INCIERTO*
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Version](https://img.shields.io/badge/version-7.0-blue.svg)](CHANGELOG.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Version](https://img.shields.io/badge/version-7.1-blue.svg)](CHANGELOG.md)
 
 ---
 
@@ -16,75 +16,108 @@ A complete **AI-powered software development framework** that puts **you** in co
 
 **The problem v6.x solved**: One AI doing everything sequentially → 20 specialized agents in parallel. 3x faster.
 
-**The problem v6.x DIDN'T solve** (fixed in v7.0):
+**The problem v7.0 solved**: AI-CEO made architectural decisions → **YOU make every decision via ADRs** with the "Preguntón" Principle.
 
-| Before (v6.3) | After (v7.0) |
+**The problem v7.0 DIDN'T solve** (fixed in v7.1):
+
+| Before (v7.0) | After (v7.1) |
 |---------------|--------------|
-| AI-CEO made architectural decisions → 8 critical bugs in 4 experiments | **YOU make every architectural decision** via ADRs |
-| Designer chose visual direction alone → you saw it at HITL #2 | **Designer proposes 2-3 directions**, you pick one |
-| Backend chose DB schema while coding → migrations forgotten, CSRF broken | **Architecture locked BEFORE coding** — agents only execute |
-| You felt outside the cycle | **You are the Software Engineer. You own the project.** |
-| Tasks were vague → agents improvised | **Cuadriculated tasks** — exact file, contract, tests, forbidden decisions |
+| All decisions treated equally ("always propose 2-3 options") | **Decision Type Routing** — ABANICO (filter), INSTINTIVO (ask), CERRADO (execute), INCIERTO (report) |
+| Orchestrator writes code directly (no watchdog) | **Process Auditor** blocks phase transitions if orchestrator violates protocol |
+| Agent model assignments ignored in practice | **Handoff protocol** includes `model_required`, **Cost Tracking** logs deviations |
+| Dead code and orphan files accumulate in parallel builds | **Post-merge audit** in Integrator detects orphans, dead code, test/prod divergence |
+| No formal closure — docs desync between sessions | **Closure Protocol** syncs BACKLOG + ACTIVE + Engram + startup script |
+| Ambiguous decisions become assumptions | **Uncertainty Reporter** forces agents to STOP and ask instead of assuming |
 
 ---
 
 ## The Two Worlds
 
-### 🌍 MUNDO 1: DEFINITION (You drive, agents propose)
+### 🌍 MUNDO 1: DEFINITION (You drive, agents classify + propose)
 
-No code. Only decisions. You speak in natural language. Agents propose options with pros/cons. YOU choose.
+No code. Only classified decisions. Agents know whether to research, ask, execute, or report uncertainty.
 
 ```
 FASE 0:  VISION       → You write 1 paragraph (what, for whom, why)
-FASE 0.5: RESEARCH    → Agent researches 2-3 viable approaches with evidence
-FASE 0.7: ARCHITECTURE → Agent proposes ADRs, YOU choose each one
-FASE 1:  UX           → Agent proposes flows/responsive, YOU decide
-FASE 1.5: DESIGN      → Designer proposes 2-3 palettes, YOU pick one
-FASE 2:  SPEC TOTAL   → Specifier writes contracts against YOUR decisions
-FASE 3:  PLAN TOTAL   → PM writes cuadriculated tasks (locked)
+FASE 0.5: RESEARCH    → Agent researches, filters 30→3 options
+FASE 0.7: ARCHITECTURE → Agent proposes classified ADRs, YOU choose
+FASE 1:  UX           → Agent asks directly (INSTINTIVO), YOU answer
+FASE 1.5: DESIGN      → Designer proposes 2-3 directions, YOU pick
+FASE 2:  SPEC TOTAL   → Specifier writes contracts (CERRADO)
+FASE 3:  PLAN TOTAL   → PM writes cuadriculated tasks
+FASE 3.5: AUDIT 🆕   → Process Auditor validates compliance
 ```
 
 ### 🌍 MUNDO 2: EXECUTION (Agents only, zero decisions)
 
-No decisions. Only execution. Agents build exactly what was specified.
+No decisions. Only execution. Agents build exactly what was specified. Uncertainty is reported, never assumed.
 
 ```
-FASE 4:  BUILD        → FE + BE + QA execute locked tasks
-FASE 5:  INTEGRATE    → Integrator verifies code matches ADRs
+FASE 4:  BUILD        → FE + BE + QA execute locked tasks (CERRADO)
+                         Uncertainty Reporter on ambiguity
+FASE 5:  INTEGRATE    → Integrator verifies code + post-merge audit 🆕
 FASE 6:  VERIFY       → QA + Reality Checker validate
-FASE 7:  CIERRE       → Documentation + retro
+FASE 7:  CIERRE       → Closure Protocol 🆕 (docs + engram + startup)
 ```
 
 ---
 
-## The "Preguntón" Principle
+## Decision Type Routing 🆕
 
-Every AI agent **must** present options before deciding anything. Nothing is assumed.
+**Every decision is classified before it reaches the Owner. Not all decisions need the same treatment.**
 
-| Old way (v6.3) | New way (v7.0) |
-|----------------|----------------|
-| "We'll use SQLite" | "Option A: SQLite (zero config, perfect for MVP). Option B: PostgreSQL (production-ready). Owner decides." |
-| "Making it responsive" | "UX options: A) Mobile-first B) Desktop-only C) Adaptive. Owner decides based on audience." |
-| "Using blue palette" | "Direction A: Stripe-inspired (#635BFF). Direction B: Warm Soft (#D4A574). Owner picks the vibe." |
+| Type | When | Flow | Human Time |
+|------|------|------|-----------|
+| **ABANICO AMPLIO** | Many options (>5) | IA filters 30→3, Owner picks | ~10 seg |
+| **INSTINTIVO** | Taste/personal preference | IA asks directly, Owner answers | ~2 seg |
+| **CERRADO** | One correct answer | IA executes, optional confirm | ~0 seg |
+| **INCIERTO** | Missing context | IA reports uncertainty, Owner clarifies | ~5 seg |
 
-Your time investment: **10-30 minutes reading options and deciding**. Then agents execute everything.
+Old "Preguntón Principle" (v7.0): always propose 2-3 options.
+New principle (v7.1): classify first, then choose the right flow.
+
+---
+
+## The 14 Agents
+
+### Definition Team (classify + propose — you decide)
+
+| Agent | Phase | Type | Role |
+|-------|-------|------|------|
+| **Researcher** | 0.5 | ABANICO | Investigates options, filters to 2-3 with evidence |
+| **Architect** | 0.7 | ABANICO | Proposes classified ADRs with alternatives |
+| **UX Architect** | 1 | INSTINTIVO | Asks you directly about flows, brand, responsive |
+| **Designer** | 1.5 | INSTINTIVO | Proposes 2-3 visual directions, you pick |
+| **Accessibility Auditor** | 1.5 | CERRADO | WCAG 2.2 AA audit on chosen design |
+| **Specifier** | 2 | CERRADO | Writes contracts locked against ADRs |
+| **Process Auditor** 🆕 | 3.5 | CERRADO | Validates process compliance before Build |
+
+### Execution Team (pure execution — zero decisions)
+
+| Agent | Phase | Type | Role |
+|-------|-------|------|------|
+| **Frontend** | 4 | CERRADO | Builds UI from locked specs + DESIGN.md |
+| **Backend** | 4 | CERRADO | Builds APIs from locked specs + ADRs |
+| **QA** | 4 | CERRADO | Tests against specs + verifies ADR compliance |
+| **Integrator** 🆕 | 5 | CERRADO | Post-merge audit: dead code, orphans, divergence |
+| **Reality Checker** | 6 | MIXTO | Visual evidence, production readiness |
 
 ---
 
 ## Architecture Decision Records (ADRs)
 
-Every architectural decision is recorded in `docs/architecture/ADR-NNN-title.md`:
+Every architectural decision is recorded with its **decision type**:
 
 ```markdown
 # ADR-001: Database Engine
+**Type**: ABANICO AMPLIO
 
 ## Context
 Need persistence for users, notes, sessions. < 100 concurrent users.
 
 ## Options
-1. **SQLite** — Zero config, no server, embedded. Pros: simple. Cons: no concurrency.
-2. **PostgreSQL** — Robust, concurrent. Pros: production-ready. Cons: needs server.
-3. **MySQL** — Broad ecosystem. Pros: well-known. Cons: less features than PG.
+1. **SQLite** — Zero config, no server. Pros: simple. Cons: no concurrency.
+2. **PostgreSQL** — Robust, concurrent. Pros: production. Cons: needs server.
 
 ## Recommendation
 SQLite for MVP (migration to PG is trivial with interface abstraction).
@@ -95,136 +128,61 @@ SQLite for MVP (migration to PG is trivial with interface abstraction).
 
 ---
 
-## Cuadriculated Tasks
-
-Before agents code, every task is fully specified:
-
-```markdown
-### B-001: Create User model
-- **File**: internal/models/user.go
-- **Contract**: User struct with ID, Email, PasswordHash, CreatedAt
-- **Methods**: Create(), FindByEmail(), ValidatePassword()
-- **Tests**: 3 cases (create, duplicate email, password validation)
-- **ADRs**: ADR-002 (SQLite), ADR-003 (bcrypt)
-- **Forbidden**: NO adding fields, NO changing types, NO ORM
-```
-
-An agent that receives this task has **nothing to decide** — just execute.
-
----
-
-## The 12 Agents
-
-### Definition Team (propose options — you decide)
-
-| Agent | Phase | Role |
-|-------|-------|------|
-| **Researcher** | 0.5 | Investigates options with evidence and sources |
-| **Architect** 🆕 | 0.7 | Proposes ADRs with 2-3 alternatives |
-| **UX Architect** 🆕 | 1 | Proposes flows, responsive, brand direction |
-| **Designer** | 1.5 | Proposes 2-3 visual directions, you pick |
-| **Accessibility Auditor** | 1.5 | WCAG 2.2 AA audit on chosen design |
-| **Specifier** | 2 | Writes contracts locked against ADRs |
-
-### Execution Team (pure execution — zero decisions)
-
-| Agent | Phase | Role |
-|-------|-------|------|
-| **Frontend** | 4 | Builds UI from locked specs + DESIGN.md |
-| **Backend** | 4 | Builds APIs from locked specs + ADRs |
-| **QA** | 4 | Tests against specs + verifies ADR compliance |
-| **Integrator** | 5 | Verifies code matches locked ADRs |
-| **Reality Checker** | 6 | Visual evidence, production readiness |
-
-### Marketing Team (post-launch)
-
-| Agent | Role |
-|-------|------|
-| **Content Strategist** | Content plan |
-| **Copywriter** | Posts, hooks, threads |
-| **Newsletter Writer** | Email campaigns |
-| **Analytics Reporter** | Metrics |
-
----
-
 ## File Structure
 
 ```
 your-project/
-├── .ai-squad/                    ← v7.0 renamed from .empresa/
-│   ├── agents/                   ← 12 agent prompts
-│   │   ├── architect.md          ← NEW
-│   │   ├── ux-architect.md       ← NEW
-│   │   ├── researcher.md         ← MODIFIED (options-based)
-│   │   ├── designer.md           ← MODIFIED (proposes 2-3)
-│   │   ├── specifier.md          ← MODIFIED (ADR-locked)
-│   │   ├── backend.md            ← MODIFIED (pure execution)
-│   │   ├── frontend.md           ← MODIFIED (pure execution)
-│   │   ├── qa.md                 ← MODIFIED (ADR compliance)
-│   │   ├── integrator.md         ← MODIFIED (ADR verification)
+├── .ai-squad/                    ← v7.1
+│   ├── agents/                   ← 14 agent prompts
+│   │   ├── process-auditor.md    ← 🆕 NEW
+│   │   ├── architect.md
+│   │   ├── ux-architect.md
+│   │   ├── researcher.md
+│   │   ├── designer.md
+│   │   ├── specifier.md
+│   │   ├── backend.md
+│   │   ├── frontend.md
+│   │   ├── qa.md
+│   │   ├── integrator.md         ← MODIFIED (post-merge audit)
 │   │   ├── accessibility-auditor.md
 │   │   ├── reality-checker.md
 │   │   └── docs-agent.md
 │   ├── config/
-│   │   ├── agents.json          # Model assignments
-│   │   └── design-systems.md    # 72 pre-built systems
-│   ├── content/
-│   │   ├── about-brand.md
-│   │   └── brand-voice.md
+│   │   ├── agents.json           # v7.1 with decision_type per agent
+│   │   └── opencode.json         # v7.1 with process-auditor
 │   ├── docs/
-│   │   ├── STATE.md
-│   │   ├── ACTIVE.md
-│   │   ├── DONE.md
-│   │   ├── BACKLOG.md
-│   │   └── GAP_APPROVAL.md
-│   ├── skills/                   # 22 specialized skills
-│   ├── templates/                # NEW
-│   │   ├── ADR.md
-│   │   ├── VISION.md
-│   │   ├── UX_DIRECTION.md
-│   │   └── TASK.md
+│   │   ├── AUDIT_LOG.md          ← 🆕 Process Auditor reports
+│   │   ├── COST_TRACKING.md      ← 🆕 Model cost log
+│   │   └── TASK_HANDOFFS.md      ← 🆕 Handoff templates
+│   ├── skills/
+│   │   ├── decision-type-routing.md  ← 🆕 NEW
+│   │   ├── uncertainty-reporter.md   ← 🆕 NEW
+│   │   └── ... (20 existing skills)
+│   ├── templates/
+│   │   ├── CLOSURE_CHECKLIST.md  ← 🆕 NEW
+│   │   └── ... (4 existing templates)
+│   ├── scripts/
+│   │   └── closure-protocol.sh   ← 🆕 NEW
 │   └── CONFIG.md
 ├── docs/
-│   ├── vision/
 │   ├── architecture/             ← ADRs live here
 │   ├── ux/
 │   ├── specs/
 │   └── research/
-├── DESIGN.md
+├── PROMPT-INICIAL.md             ← v7.1
+├── README.md                     ← v7.1
 ├── CHANGELOG.md
-├── INIT.md
-├── PROMPT-INICIAL.md
-└── README.md
-```
-
----
-
-## Quick Start
-
-```bash
-# 1. Clone or download
-git clone https://github.com/allacalle/ai-squad.git
-
-# 2. Copy to your project
-cp -r ai-squad/.ai-squad/ ./ && cp ai-squad/*.md ./
-
-# 3. Write your vision
-echo "# My Project" > docs/VISION.md
-
-# 4. Launch
-# Open your AI and say:
-# "Read PROMPT-INICIAL.md and start the Definition phase."
+└── INIT.md
 ```
 
 ---
 
 ## Versions
 
-v7.0 is a major evolution. The old v6.3 workflow (`.empresa/`, AI-CEO driven) is preserved in the `master` branch and in all experiments B0-B3. If you prefer the old model, use the `master` branch.
-
 | Version | Branch | Paradigm |
 |---------|--------|----------|
-| **v7.0** 🆕 | `v7.0` | Human-Driven Architecture (you decide, agents execute) |
+| **v7.1** 🆕 | `v7.0` | Decision Type Routing + Process Auditor |
+| v7.0 | `v7.0` | Human-Driven Architecture (you decide, agents execute) |
 | v6.3 | `master` | AI-CEO orchestrated (agents decide, you review) |
 
 ---
@@ -234,13 +192,9 @@ v7.0 is a major evolution. The old v6.3 workflow (`.empresa/`, AI-CEO driven) is
 AI-SQUAD stands on the shoulders of giants:
 
 - **[DESIGN.md](https://github.com/google-labs-code/design.md)** — Google Labs visual identity standard
-- **[Social Media Skills](https://github.com/charlie947/social-media-skills)** — Charlie Hills' marketing system
 - **[Agent Orchestration Kit](https://github.com/jcarlosrodicio/opencode-agent-orchestration-kit)** — jcarlosrodicio's OpenCode flows
-- **[Open Design](https://github.com/nexu-io/open-design)** — Nexu's design systems
-- **[Agency Agents](https://github.com/msitarzewski/agency-agents)** — msitarzewski's 89.8k⭐ agent collection
+- **[Agency Agents](https://github.com/msitarzewski/agency-agents)** — msitarzewski's agent collection
 - **[Superpowers](https://github.com/obra/superpowers.git)** — obra's workflow discipline
-- **[Awesome Design MD](https://github.com/VoltAgent/awesome-design-md)** — VoltAgent's 72 design systems
-- **[Huashu Design](https://github.com/alchaincyf/huashu-design)** — alchaincyf's design philosophy
 
 ---
 

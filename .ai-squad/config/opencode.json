@@ -127,6 +127,24 @@
         "bash": true,
         "context7": true
       }
+    },
+    "process-auditor": {
+      "description": "v7.1 Process Auditor - watchdog que verifica el proceso, bloquea transiciones si hay violaciones",
+      "tools": {
+        "skill": true,
+        "glob": true,
+        "grep": true,
+        "read": true,
+        "write": true
+      }
+    },
+    "uncertainty-reporter": {
+      "description": "v7.1 Uncertainty Reporter - reporta incertidumbre de los agentes al Owner",
+      "tools": {
+        "skill": true,
+        "read": true,
+        "write": true
+      }
     }
   },
   "mcp": {
