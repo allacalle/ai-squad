@@ -1,5 +1,20 @@
 # Changelog - AI-SQUAD Framework
 
+## [7.1.1] - 21/05/2026 - Debug Protocol Edition 🐛
+
+**Hotfix based on B6: The LLM has confidence bias in its own code. New Debug Protocol forces raw inspection before retrying or rewriting.**
+
+### 🆕 Regla #11 — Debug Protocol
+- When output is not expected: log raw data, inspect actual format, compare vs expected, fix parser to match reality
+- Added to `PROMPT-INICIAL.md` rules section
+- Added to `INIT.md` Startup Checklist
+- Added to `TASK_HANDOFFS.md` with `DECISION TYPE: DEBUG`
+
+### 🧠 Lección de B6
+The SSE parser failed because Google sent `"data:{...}"` (no space) but the parser expected `"data: "` (with space). The orchestrator retried 3 times assuming API failure instead of inspecting the raw data. The human fixed it by adding raw logging. This protocol prevents that.
+
+---
+
 ## [7.1] - 20/05/2026 - Decision Type Routing Edition 🎯
 
 **Major upgrade based on experiments B0-B5: Every decision now has a type, every process has a watchdog, every build has a post-merge audit.**

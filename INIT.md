@@ -103,6 +103,7 @@ ls docs/architecture/
 - [ ] First ADR presented → you decide
 - [ ] Proceed through Definition phases
 - [ ] When Spec is locked → agents execute
+- [ ] **Debug Protocol**: before retrying a failed integration, add RAW logging at the system boundary and compare expected vs actual format
 
 ---
 

@@ -116,4 +116,15 @@ SPECS: todos en docs/specs/
 
 ---
 
+## Debug Protocol (v7.1.1)
+
+When integrating with an external API, include a **raw debug step** in the handoff:
+- Log the raw response before parsing
+- Compare expected format vs actual format
+- If they don't match: fix the parser, don't assume the API will change
+
+**Why:** In B6, the SSE parser expected `"data: "` (with space) but Google sent `"data:{...}"` (without space). The orchestrator retried 3 times assuming API failure instead of inspecting the raw data. Add `DECISION TYPE: DEBUG` to the handoff.
+
+---
+
 *AI-SQUAD v7.1 — Decision Type Routing Edition. Handoff Protocol enforced.*
